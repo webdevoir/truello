@@ -1,0 +1,32 @@
+# Trello Clone
+
+[Trello link][trello]
+
+[trello]: https://trello.com/b/TsgVCryN/trello-clone
+
+## Minimum Viable Product
+
+Trello Clone is a web application inspired by Trello built using
+Ruby on Rails and React/Redux.
+
+### Features
+- [ ] New account creation, login, and guest/demo login
+- [ ] Production README [sample](docs/production_readme.md)
+- [ ] Hosting on Heroku
+- [ ] Boards
+- [ ] Lists & Cards
+- [ ] Sharing Boards
+- [ ] Comments and Due Dates
+
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
+
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
