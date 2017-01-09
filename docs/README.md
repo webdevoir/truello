@@ -21,6 +21,10 @@ using Ruby on Rails and React/Redux.
 - [ ] Sharing Boards
 - [ ] Comments & Due Dates
 
+### Bonus Features
+- [ ] Board Settings
+- [ ] Hotkeys
+
 ## Design Docs
 * [View Wireframes][wireframes]
 * [React Components][components]
@@ -62,7 +66,3 @@ Shared members can view the board and edit cards but cannot change settings or s
 ### Phase 5: Comments & Due Dates (1 day, W2 Fr 6pm)
 
 **Objective:** Cards can have comments and a due date.
-
-### Bonus Features
-- [ ] Board Settings
-- [ ] Hotkeys
