@@ -1,7 +1,10 @@
 # Truello
 
+[Heroku link][heroku]
+
 [Trello link][trello]
 
+[heroku]: http://www.herokuapp.com
 [trello]: https://trello.com/b/TsgVCryN/truello
 
 ## Minimum Viable Product
@@ -58,4 +61,4 @@ Shared members can view the board and edit cards but cannot change settings or s
 
 ### Phase 5: Comments & Due Dates (1 day, W2 Fr 6pm)
 
-**objective:** Cards can have comments and a due date.
+**Objective:** Cards can have comments and a due date.
