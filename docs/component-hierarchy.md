@@ -5,11 +5,18 @@
 
 **HomeContainer**
  - Home
- - Sidebar
+ - Navbar
 
-**NotesContainer**
- - NotesHeader
-  * NoteIndex
+**BoardsContainer**
+ - BoardsHeader
+  - BoardsIndex
+    - BoardIndexItem
+    - BoardForm
+
+**BoardDetailContainer**
+  - BoardDetail
+    - ListIndex
+    - MemberMenu
 
 **NotebookContainer**
  - NotebookHeader

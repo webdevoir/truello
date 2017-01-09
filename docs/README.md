@@ -6,8 +6,8 @@
 
 ## Minimum Viable Product
 
-Truello is a web application inspired by Trello built using
-Ruby on Rails and React/Redux.
+Truello is a project management web application inspired by Trello built
+using Ruby on Rails and React/Redux.
 
 ### Features
 - [ ] New account creation, login, and guest/demo login
