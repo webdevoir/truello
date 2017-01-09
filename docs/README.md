@@ -2,7 +2,7 @@
 
 [Trello link][trello]
 
-[trello]: https://trello.com/b/TsgVCryN/trello-clone
+[trello]: https://trello.com/b/TsgVCryN/truello
 
 ## Minimum Viable Product
 
