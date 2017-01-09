@@ -15,6 +15,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users), indexed
 name        | string    | not null
+closed      | boolean   | not null, default: false
 
 ## lists
 column name | data type | details

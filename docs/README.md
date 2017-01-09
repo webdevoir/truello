@@ -11,7 +11,7 @@ Ruby on Rails and React/Redux.
 
 ### Features
 - [ ] New account creation, login, and guest/demo login
-- [ ] Production README [sample](docs/production_readme.md)
+- [ ] [Production README](../README.md)
 - [ ] Hosting on Heroku
 - [ ] Boards
 - [ ] Lists & Cards
