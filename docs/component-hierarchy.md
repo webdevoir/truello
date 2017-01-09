@@ -9,56 +9,46 @@
 
 **BoardsContainer**
  - BoardsHeader
-  - BoardsIndex
-    - BoardIndexItem
-    - BoardForm
+ - BoardIndex
+
+**BoardIndex**
+ - BoardIndexItem
+ - BoardForm
 
 **BoardDetailContainer**
-  - BoardDetail
-    - ListIndex
-    - MemberMenu
+ - BoardHeader
+ - ListIndex
+ - MemberIndex
 
-**NotebookContainer**
- - NotebookHeader
-  + NoteIndex
+**ListIndex**
+ - ListIndexItem
+ - ListForm
 
-**SearchResultsContainer**
- - Search
- - NoteIndex
+**MemberIndex**
+ - MemberHeader
+ - MemberIndexItem
+ - MemberForm
 
-**TagContainer**
- - NotebookHeader
-  + NoteIndex
+**ListIndexItem**
+ - CardIndex
 
-**NoteIndex**
- - NoteIndexItem
-  + NoteDetail
-    + NoteTools
-    - NotebookSearch
-    - Tags
-      - Tag
-    * Note
+**CardIndex**
+ - CardIndexItem
+ - CardForm
 
-**NewNoteContainer**
- - NewNote
-  - RTETools
-  - NewNoteButton
+**CardDetailContainer**
+ - CardHeader
+ - ChecklistIndex
+ - CommentIndex
 
-**Search**
+**ChecklistIndex**
+ - ChecklistHeader
+ - ChecklistIndexItem
 
-**NewNotebook**
- - NewNotebook
-
-**NewTag**
- - NewTag
-
-**NotebookSearch**
- + AutoSearch
- * AutoSearchResults
-
-**TagsSearch**
- + AutoSearch
- * AutoSearchResults
+**CommentIndex**
+ - CommentHeader
+ - CommentIndexItem
+ - CommentForm
 
 ## Routes
 
@@ -67,13 +57,5 @@
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
-| "/home/note/:noteId" | "NotesContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
-| "/home/tag/:tagId/note/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
-| "/new-note" | "NewNoteContainer" |
-| "/search" | "Search" |
-| "/new-notebook" | "NewNotebook" |
-| "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/notebook-search" | "NotebookSearch" |
+| "/home/board/:boardId" | "BoardDetailContainer" |
+| "/home/board/:boardId/card/:cardId" | "CardDetailContainer" |
