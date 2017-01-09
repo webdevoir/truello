@@ -7,21 +7,7 @@
   forms: {
     signUp: {errors: []},
     logIn: {errors: []},
-    createNote: {errors: ["body can't be blank"]}
-  },
-  notes: {
-    1: {
-      title: "Sample State",
-      body: "is useful to plan",
-      author_id: 1,
-      notebook_id: 1
-      tags: {
-        1: {
-          id: 1
-          name: "Coding"
-        }
-      }
-    }
+    createCard: {errors: ["name can't be blank"]}
   },
   boards: {
     1: {
