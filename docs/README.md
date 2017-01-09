@@ -1,4 +1,4 @@
-# Trello Clone
+# Truello
 
 [Trello link][trello]
 
@@ -6,7 +6,7 @@
 
 ## Minimum Viable Product
 
-Trello Clone is a web application inspired by Trello built using
+Truello is a web application inspired by Trello built using
 Ruby on Rails and React/Redux.
 
 ### Features
