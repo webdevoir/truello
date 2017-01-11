@@ -3,16 +3,16 @@ import { Link } from 'react-router';
 
 const signup = () => (
   <div className="header-button-group">
-    <Link to="/login" className="header-link">Log In</Link>
+    <Link to="/login" className="btn">Log In</Link>
     <Link to="/signup"
-      className="header-link signup-link">Sign up!</Link>
+      className="btn signup-link">Sign up</Link>
   </div>
 );
 
 const personalGreeting = (currentUser, logout) => (
 	<div className="header-group">
-    <h2 className="user-name">Hi, {currentUser.username}!</h2>
-    <button className="header-button" onClick={logout}>Log Out</button>
+    <h2 className="user-name">{currentUser.username}</h2>
+    <button className="btn" onClick={logout}>Log Out</button>
 	</div>
 );
 

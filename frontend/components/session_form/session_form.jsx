@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
 
   demoLogin() {
     if (this.props.formType === "login") {
-      return <button type="button"
+      return <button className="btn" type="button"
               onClick={() => this.props.processForm(
                 { username: "demo_user",
                   password: "password" })}
@@ -55,13 +55,13 @@ class SessionForm extends React.Component {
 
   footerLink() {
     if (this.props.formType === "login") {
-      return (<div>
+      return (<div className="form-footer">
                 Don't have an account?&nbsp;
                 <Link to="/signup">Create a Truello account.</Link>
               </div>);
     } else {
       return (
-        <div>
+        <div className="form-footer">
           Already have an account?&nbsp;
           <Link to="/login">Log in.</Link>
         </div>
@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="form-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -82,8 +82,14 @@ class SessionForm extends React.Component {
   }
 
   headerText() {
-    return this.props.formType === "login" ? "Log in to Truello"
-      : "Create a Truello Account";
+    return this.props.formType === "login" ?
+    <h1>Log in to Truello</h1>
+      : <h1>Create a Truello Account</h1>;
+  }
+
+  submitText() {
+    return this.props.formType === "login" ?
+      "Log In" : "Create New Account";
   }
 
   render() {
@@ -91,26 +97,26 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           {this.headerText()}
-          <br/>
           {this.renderErrors()}
           <div className="login-form">
-            <br/>
+            <div className="form-input-container">
             <label className="form-label" htmlFor="form-name">Name</label>
               <input id="form-name" type="text"
                 value={this.state.username}
                 onChange={this.update("username")}
-                className="login-input"
+                className="form-input"
                 required />
-            <br/>
+            </div>
+            <div className="form-input-container">
             <label className="form-label"
               htmlFor="form-password">Password</label>
               <input id="form-password" type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
-                className="login-input"
+                className="form-input"
                 required />
-            <br/>
-            <button>Submit</button>
+            </div>
+            <button className="btn form-btn">{this.submitText()}</button>
             {this.demoLogin()}
           </div>
         </form>

@@ -1,3 +1,51 @@
 .form-label {
   display: block;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.form-input-container {
+  margin: 15px 0;
+}
+
+.form-input {
+  font-size: 18px;
+  width: 100%;
+}
+
+.login-form-container {
+  margin-top: 25px;
+  color: $gray;
+}
+
+.login-form-box {
+  max-width: 315px;
+}
+
+.form-btn {
+  background-color: $green;
+}
+
+.form-footer {
+  margin-top: 15px;
+  color: $light-gray;
+  font-size: 18px;
+}
+
+.form-footer a {
+  text-decoration: underline;
+}
+
+.form-footer a:hover {
+  color: $black;
+}
+
+.form-errors {
+  color: $red;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.form-errors li {
+  margin-bottom: 10px;
 }
