@@ -14,7 +14,7 @@
 }
 
 .login-form-container {
-  margin-top: 25px;
+  margin-top: 75px;
   color: $gray;
 }
 
@@ -24,6 +24,11 @@
 
 .form-btn {
   background-color: $green;
+  border: 2px solid $dark-green;
+}
+
+.form-btn:hover {
+  background-color: $dark-green;
 }
 
 .form-footer {

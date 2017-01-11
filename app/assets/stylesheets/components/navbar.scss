@@ -6,6 +6,7 @@
   color: $white;
   height: 40px;
   padding: 20px 15px;
+  border-bottom: 1px solid $blue;
 }
 
 .header-button-group {
@@ -20,6 +21,11 @@
 
 .signup-link {
   background-color: $green;
+  border: 2px solid $dark-green;
+}
+
+.signup-link:hover {
+  background-color: $dark-green;
 }
 
 .user-name {
