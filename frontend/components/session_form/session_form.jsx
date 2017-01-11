@@ -49,10 +49,12 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const text = this.props.formType === "login" ? "Log in to Truello"
+      : "Create a Truello Account";
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Truello!
+          {text}
           <br/>
           Please {this.props.formType} or {this.navLink()}
           {this.renderErrors()}
