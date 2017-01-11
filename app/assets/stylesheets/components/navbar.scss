@@ -2,13 +2,33 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  background-color: $blue;
+  background-color: $light-blue;
   color: $white;
+  height: 40px;
+  padding: 20px 15px;
+}
+
+.header-button-group {
+  margin: 8px 15px 0 0;
+  height: 25px;
 }
 
 .header-group {
-  display: flex;
-  margin: 10px 15px 0 0;
+  margin: 5px 15px 0 0;
+  height: 25px;
+}
+
+.header-link {
+  border: 1px solid $black;
+  border-radius: 5px;
+  padding: 7px 10px;
+  background-color: $blue;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.signup-link {
+  background-color: $green;
 }
 
 .user-name {
@@ -20,5 +40,5 @@
 }
 
 .logo {
-  margin-left: 15px;
+  margin: 5px 0 0 15px;
 }

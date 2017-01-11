@@ -19,6 +19,11 @@ export const logout = () => dispatch => (
   SessionAPIUtil.logout().then(user => dispatch(receiveCurrentUser(null)))
 );
 
+export const clearErrors = () => ({
+  type: RECEIVE_ERRORS,
+  errors: []
+});
+
 const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser

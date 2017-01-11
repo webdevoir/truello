@@ -13,6 +13,13 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.location.pathname !== newProps.location.pathname) {
+      this.setState({ username: "", password: "" },
+      () => this.props.clearErrors());
+    }
+  }
+
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
       this.props.router.push("/");
@@ -29,8 +36,13 @@ class SessionForm extends React.Component {
   }
 
   demoLogin() {
-    this.setState({ username: "demo_user", password: "password" },
-    () => this.props.processForm(this.state));
+    if (this.props.formType === "login") {
+      return <button type="button"
+              onClick={() => this.props.processForm(
+                { username: "demo_user",
+                  password: "password" })}
+              >Demo User</button>;
+    }
   }
 
   navLink() {
@@ -38,6 +50,22 @@ class SessionForm extends React.Component {
       return <Link to="/signup">sign up instead</Link>;
     } else {
       return <Link to="/login">log in instead</Link>;
+    }
+  }
+
+  footerLink() {
+    if (this.props.formType === "login") {
+      return (<div>
+                Don't have an account?&nbsp;
+                <Link to="/signup">Create a Truello account.</Link>
+              </div>);
+    } else {
+      return (
+        <div>
+          Already have an account?&nbsp;
+          <Link to="/login">Log in.</Link>
+        </div>
+      );
     }
   }
 
@@ -53,44 +81,40 @@ class SessionForm extends React.Component {
     );
   }
 
-  render() {
-    const text = this.props.formType === "login" ? "Log in to Truello"
+  headerText() {
+    return this.props.formType === "login" ? "Log in to Truello"
       : "Create a Truello Account";
-    let demo;
-    if (this.props.formType === "login") {
-      demo = <button type="button"
-              onClick={() => this.demoLogin()}>Demo User</button>;
-    }
+  }
 
+  render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          {text}
+          {this.headerText()}
           <br/>
-          Please {this.props.formType} or {this.navLink()}
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label> Username:
-              <input type="text"
+            <label className="form-label" htmlFor="form-name">Name</label>
+              <input id="form-name" type="text"
                 value={this.state.username}
                 onChange={this.update("username")}
                 className="login-input"
                 required />
-            </label>
             <br/>
-            <label> Password:
-              <input type="password"
+            <label className="form-label"
+              htmlFor="form-password">Password</label>
+              <input id="form-password" type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
                 className="login-input"
                 required />
-            </label>
             <br/>
             <button>Submit</button>
-            {demo}
+            {this.demoLogin()}
           </div>
         </form>
+        {this.footerLink()}
       </div>
     );
   }

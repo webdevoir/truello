@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const signup = () => (
-  <div className="header-group">
-    <Link to="/login" activeClassName="current">Login</Link>&nbsp;or&nbsp;
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
+  <div className="header-button-group">
+    <Link to="/login" className="header-link">Log In</Link>
+    <Link to="/signup"
+      className="header-link signup-link">Sign up!</Link>
   </div>
 );
 
@@ -18,7 +19,7 @@ const personalGreeting = (currentUser, logout) => (
 const Navbar = ({ currentUser, logout }) => (
   <nav className="navbar">
     <div className="logo">
-      <Link to="/" className="header-link">
+      <Link to="/">
         <h1>Truello</h1>
       </Link>
     </div>
