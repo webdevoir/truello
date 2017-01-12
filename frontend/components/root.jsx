@@ -2,8 +2,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
-import NavbarContainer from './navbar/navbar_container';
+import Splash from './splash/splash';
 import SessionFormContainer from './session_form/session_form_container';
+import BoardIndexContainer from './board/board_index_container';
+import BoardDetailContainer from './board/board_detail_container';
 
 const Root = ({ store }) => {
 
@@ -17,7 +19,7 @@ const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/boards');
     }
   };
 
@@ -25,11 +27,15 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={NavbarContainer} />
+          <IndexRoute component={Splash} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={SessionFormContainer}
             onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer}
             onEnter={_redirectIfLoggedIn} />
+          <Route path="/boards" component={BoardIndexContainer}
+            onEnter={_ensureLoggedIn} />
+          <Route path="/boards/:boardId" component={BoardDetailContainer}
+              onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>

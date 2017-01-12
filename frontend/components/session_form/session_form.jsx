@@ -86,33 +86,35 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          {this.headerText()}
-          {this.renderErrors()}
-          <div className="login-form">
-            <div className="form-input-container">
-            <label className="form-label" htmlFor="form-name">Name</label>
-              <input id="form-name" type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                className="form-input"
-                required />
+      <div className="outer-form-screen">
+        <div className="login-form-container">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            {this.headerText()}
+            {this.renderErrors()}
+            <div className="login-form">
+              <div className="form-input-container">
+              <label className="form-label" htmlFor="form-name">Name</label>
+                <input id="form-name" type="text"
+                  value={this.state.username}
+                  onChange={this.update("username")}
+                  className="form-input"
+                  required />
+              </div>
+              <div className="form-input-container">
+              <label className="form-label"
+                htmlFor="form-password">Password</label>
+                <input id="form-password" type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="form-input"
+                  required />
+              </div>
+              <button className="btn form-btn">{this.submitText()}</button>
+              {this.demoLogin()}
             </div>
-            <div className="form-input-container">
-            <label className="form-label"
-              htmlFor="form-password">Password</label>
-              <input id="form-password" type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="form-input"
-                required />
-            </div>
-            <button className="btn form-btn">{this.submitText()}</button>
-            {this.demoLogin()}
-          </div>
-        </form>
-        {this.footerLink()}
+          </form>
+          {this.footerLink()}
+        </div>
       </div>
     );
   }

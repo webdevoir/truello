@@ -13,7 +13,7 @@ Truello is a project management web application inspired by Trello built
 using Ruby on Rails and React/Redux.
 
 ### Features
-- [ ] New account creation, login, and guest/demo login
+- [x] New account creation, login, and guest/demo login
 - [ ] [Production README](../README.md)
 - [ ] Hosting on Heroku
 - [ ] Boards

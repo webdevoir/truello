@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 const signup = () => (
   <div className="header-button-group">
@@ -9,22 +9,24 @@ const signup = () => (
   </div>
 );
 
-const personalGreeting = (currentUser, logout) => (
+const personalGreeting = (currentUser, logout, router) => (
 	<div className="header-group">
     <h2 className="user-name">{currentUser.username}</h2>
-    <button className="btn" onClick={logout}>Log Out</button>
+    <button className="btn"
+      onClick={() => logout().then(() => router.push('/'))}>
+      Log Out</button>
 	</div>
 );
 
-const Navbar = ({ currentUser, logout }) => (
+const Navbar = ({ currentUser, logout, router }) => (
   <nav className="navbar">
     <div className="logo">
       <Link to="/">
         <h1>Truello</h1>
       </Link>
     </div>
-    { currentUser ? personalGreeting(currentUser, logout) : signup() }
+    { currentUser ? personalGreeting(currentUser, logout, router) : signup() }
   </nav>
 );
 
-export default Navbar;
+export default withRouter(Navbar);

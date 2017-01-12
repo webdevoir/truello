@@ -9,6 +9,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :boards,
+           primary_key: :id,
+           foreign_key: :owner_id,
+           class_name: :Board
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if user && user.is_password?(password)

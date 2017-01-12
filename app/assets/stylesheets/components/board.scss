@@ -1,0 +1,41 @@
+.board-content {
+  margin: 25px;
+}
+
+.board-content h1 {
+  color: $gray;
+  margin-left: 15px;
+}
+
+.board-index {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.board-index-item {
+  width: 250px;
+  height: 100px;
+  color: $white;
+  background-color: $blue;
+  border: 1px solid $dark-blue;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
+  float: left;
+  margin: 15px;
+  font-family: sans-serif;
+}
+
+.board-index-item:hover {
+  background-color: $dark-blue;
+}
+
+.board-index a {
+  display: block;
+  height: 100%;
+}
+
+.board-index span {
+  padding: 10px;
+  display: inline-block;
+}
