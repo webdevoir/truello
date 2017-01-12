@@ -22,7 +22,7 @@ const Navbar = ({ currentUser, logout, router }) => (
   <nav className="navbar">
     <div className="logo">
       <Link to="/">
-        <h1>Truello</h1>
+        <h1><i className="fa fa-book"></i> Truello</h1>
       </Link>
     </div>
     { currentUser ? personalGreeting(currentUser, logout, router) : signup() }
