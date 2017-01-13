@@ -1,32 +1,35 @@
 .board-content {
-  margin: 25px;
+  margin: auto;
+  max-width: 1300px;
 }
 
 .board-content h1 {
   color: $gray;
-  margin-left: 15px;
+  margin: 15px 0 0 15px;
 }
 
 .board-index {
-  width: 100%;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.board-index-item {
-  width: 250px;
+.board-box {
+  width: 20%;
   height: 100px;
-  color: $white;
-  background-color: $blue;
-  border: 1px solid $dark-blue;
   font-size: 16px;
   font-weight: bold;
   border-radius: 3px;
-  float: left;
   margin: 15px;
   font-family: sans-serif;
 }
 
-.board-index-item:hover {
+.blue-board-box {
+  background-color: $blue;
+  border: 1px solid $dark-blue;
+  color: $white;
+}
+
+.blue-board-box:hover {
   background-color: $dark-blue;
 }
 

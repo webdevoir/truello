@@ -1,6 +1,5 @@
 .navbar {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   background-color: $light-blue;
   color: $white;
@@ -17,15 +16,6 @@
 .header-group {
   margin: 5px 15px 0 0;
   height: 25px;
-}
-
-.signup-link {
-  background-color: $green;
-  border: 2px solid $dark-green;
-}
-
-.signup-link:hover {
-  background-color: $dark-green;
 }
 
 .user-name {

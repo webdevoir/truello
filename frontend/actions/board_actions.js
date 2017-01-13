@@ -19,6 +19,11 @@ export const fetchBoard = id => dispatch => (
     .then(boardDetail => dispatch(receiveBoardDetail(boardDetail)))
 );
 
+export const updateBoardDetail = boardDetail => dispatch => (
+  BoardAPIUtil.updateBoardDetail(boardDetail)
+    .then(newBoardDetail => dispatch(receiveBoardDetail(newBoardDetail)))
+);
+
 const receiveBoards = boards => ({
   type: RECEIVE_BOARDS,
   boards

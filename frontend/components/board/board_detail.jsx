@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ListIndexContainer from '../list/list_index_container';
+import BoardFormContainer from './board_form_container';
 
 class BoardDetail extends Component {
   componentDidMount() {
@@ -7,7 +9,15 @@ class BoardDetail extends Component {
 
   render() {
     return (
-      <div>{this.props.boardDetail.name}</div>
+      <div className="board-detail-container">
+        <div>
+          <BoardFormContainer formType="edit"
+            boardId={this.props.params.boardId}>
+            <h1>{this.props.boardDetail.name}</h1>
+          </BoardFormContainer>
+        </div>
+        <ListIndexContainer />
+      </div>
     );
   }
 }

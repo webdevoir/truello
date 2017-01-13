@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
 
   demoLogin() {
     if (this.props.formType === "login") {
-      return <button className="btn" type="button"
+      return <button className="block btn blue-btn form-btn" type="button"
               onClick={() => this.props.processForm(
                 { username: "demo_user",
                   password: "password" })}
@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
                 <input id="form-name" type="text"
                   value={this.state.username}
                   onChange={this.update("username")}
-                  className="form-input"
+                  className="form-input block"
                   required />
               </div>
               <div className="form-input-container">
@@ -106,10 +106,11 @@ class SessionForm extends React.Component {
                 <input id="form-password" type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
-                  className="form-input"
+                  className="form-input block"
                   required />
               </div>
-              <button className="btn form-btn">{this.submitText()}</button>
+              <button className="block btn green-btn form-btn">
+                {this.submitText()}</button>
               {this.demoLogin()}
             </div>
           </form>

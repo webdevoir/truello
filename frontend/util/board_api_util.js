@@ -19,3 +19,11 @@ export const createBoard = board => (
     data: {board}
   })
 );
+
+export const updateBoardDetail = board => (
+  $.ajax({
+    type: 'PATCH',
+    url: `api/boards/${board.id}`,
+    data: {board}
+  })
+);

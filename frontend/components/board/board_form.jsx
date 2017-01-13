@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import merge from 'lodash/merge';
 
 const customStyles = {
   content : {
@@ -9,22 +10,27 @@ const customStyles = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    padding               : '10px'
+    padding               : '5px',
+    width                 : '250px'
   }
 };
 
 class BoardForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modalIsOpen: false,
-      board: { name: '' }
+      board: props.board
     };
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.state.board = newProps.board;
   }
 
   componentWillMount() {
@@ -43,42 +49,53 @@ class BoardForm extends Component {
   }
 
   update(prop) {
-    return e => this.setState({ board: {
-      [prop]: e.target.value
-    } });
+    return e => {
+      const board = merge({}, this.state.board, {
+        [prop]: e.target.value
+      });
+      this.setState({ board });
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createBoard(this.state.board).then(this.closeModal);
+    this.props.action(this.state.board).then(this.closeModal);
   }
 
   render() {
+    const titleText = this.props.formType === 'new' ? 'Create Board' :
+      'Rename Board';
+    const submitText = this.props.formType === 'new' ? 'Create' :
+      'Rename';
     return (
-      <li className="new-board-item" onClick={this.openModal}>
-        <span>Create new board...</span>
+      <div className="modal-container" onClick={this.openModal}>
+        {this.props.children}
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Create Board"
+          contentLabel=""
         >
           <div className='modal-content'>
-            <button className="close-modal-button"
-              onClick={this.closeModal}>X</button>
-            <h2>Create Board</h2>
+            <div className='modal-header'>
+              <button className="close-modal-button"
+                onClick={this.closeModal}>X</button>
+              <h3>{titleText}</h3>
+            </div>
             <form onSubmit={this.handleSubmit}>
               <label className="modal-form-label"
                 htmlFor="form-board-name">Name</label>
               <input id="form-board-name" type='text'
+                className="form-board-name"
                 value={this.state.board.name}
-                onChange={this.update('name')} />
-              <button>Create</button>
+                onChange={this.update('name')} required />
+              <button
+                className='small-btn green-btn'>{submitText}</button>
             </form>
           </div>
         </Modal>
-      </li>
+      </div>
     );
   }
 }

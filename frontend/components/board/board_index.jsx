@@ -17,7 +17,11 @@ class BoardIndex extends Component {
               <BoardIndexItem key={board.id} board={board} />
             )
           }
-          <BoardFormContainer />
+          <li className="board-box new-board-box">
+            <BoardFormContainer formType="new">
+              <span>Create new board...</span>
+            </BoardFormContainer>
+          </li>
         </ul>
       </div>
     );

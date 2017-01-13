@@ -1,10 +1,12 @@
 .splash {
-  position: relative;
+  display: flex;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 81px);
   background: url(/assets/project-management.jpeg);
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
 
   .splash-box {
     background-color: $light-blue;
@@ -12,10 +14,6 @@
     border-radius: 5px;
     width: 400px;
     height: 425px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     text-align: center;
   }
 
