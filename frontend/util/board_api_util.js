@@ -20,10 +20,17 @@ export const createBoard = board => (
   })
 );
 
-export const updateBoardDetail = board => (
+export const updateBoard = board => (
   $.ajax({
     type: 'PATCH',
     url: `api/boards/${board.id}`,
     data: {board}
+  })
+);
+
+export const deleteBoard = id => (
+  $.ajax({
+    type: 'DELETE',
+    url: `api/boards/${id}`
   })
 );

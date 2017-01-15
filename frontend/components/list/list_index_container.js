@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
+import { selectLists } from '../../reducers/selectors';
+import { fetchLists } from '../../actions/list_actions';
 import ListIndex from './list_index';
-import { selectBoardDetailLists } from '../../reducers/selectors';
 
-const mapStateToProps = state => ({
-  lists: selectBoardDetailLists(state)
+const mapStateToProps = (state, ownProps) => {
+  return {
+    lists: selectLists(state)
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  fetchLists: boardId => dispatch(fetchLists(boardId))
 });
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ListIndex);

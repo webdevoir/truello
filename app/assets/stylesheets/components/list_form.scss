@@ -1,0 +1,14 @@
+.list-form {
+  position: relative;
+}
+
+.list-form:hover {
+  cursor: pointer;
+}
+
+.list-form-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

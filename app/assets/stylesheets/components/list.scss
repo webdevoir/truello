@@ -1,0 +1,17 @@
+.list-index {
+  display: flex;
+  margin: 25px;
+
+  h3 {
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .list-index-item {
+    width: 250px;
+    border: 1px solid $gray;
+    border-radius: 4px;
+    margin-right: 25px;
+    background-color: $lightest-gray;
+  }
+}

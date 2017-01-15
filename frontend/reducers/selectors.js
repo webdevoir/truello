@@ -1,11 +1,12 @@
-export const selectAllBoards = state => (
+export const selectBoards = state => (
   Object.keys(state.boards).map(id => state.boards[id])
 );
 
-export const selectBoardDetailLists = (state) => {
-  if (state.boardDetail && state.boardDetail.lists) {
-    const lists = state.boardDetail.lists;
-    return Object.keys(lists).map(listId => lists[listId]);
-  }
-  return [];
+export const selectBoard = (state, boardId) => {
+  boardId = parseInt(boardId);
+  return state.boards[boardId] || {};
 };
+
+export const selectLists = (state) => (
+  Object.keys(state.lists).map(id => state.lists[id])
+);

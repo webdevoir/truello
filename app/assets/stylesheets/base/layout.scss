@@ -65,6 +65,15 @@ textarea {
   background-color: $dark-green;
 }
 
+.red-btn {
+  background-color: $red;
+  border: 2px solid $dark-red;
+}
+
+.red-btn:hover {
+  background-color: $dark-red;
+}
+
 .block {
   width: 100%;
 }

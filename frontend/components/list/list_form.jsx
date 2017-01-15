@@ -15,22 +15,24 @@ const customStyles = {
   }
 };
 
-class BoardForm extends Component {
+class ListForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modalIsOpen: false,
-      board: props.board
+      list: props.list
     };
+
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-    this.state.board = newProps.board;
+    this.state.list = newProps.list;
   }
 
   componentWillMount() {
@@ -51,28 +53,37 @@ class BoardForm extends Component {
 
   update(prop) {
     return e => {
-      const board = merge({}, this.state.board, {
+      const list = merge({}, this.state.list, {
         [prop]: e.target.value
       });
-      this.setState({ board });
+      this.setState({ list });
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state.board).then(this.closeModal);
+    this.props.action(this.state.list).then(this.closeModal);
+  }
+
+  deleteList() {
+    this.props.deleteList(this.props.list.id);
   }
 
   render() {
-    const titleText = this.props.formType === 'new' ? 'Create Board' :
-      'Rename Board';
-    const submitText = this.props.formType === 'new' ? 'Create' :
-      'Rename';
-    const className = this.props.formType === 'new' ?
-      'new-modal-container' : 'edit-modal-container';
+    const formType = this.props.formType;
+    const title = formType === 'new' ? 'Create List' : 'Update List';
+    const text = formType === 'new' ? 'Add a list...' : '';
+    const submitText = formType === 'new' ? 'Create' : 'Update';
+    let deleteButton;
+    if (formType === 'edit') {
+      deleteButton = <button type="button"
+        className='small-btn red-btn'
+        onClick={this.deleteList}
+        >Delete</button>;
+    }
     return (
-      <div className={className} onClick={this.openModal}>
-        {this.props.children}
+      <div className="list-index-item list-form" onClick={this.openModal}>
+        {text}
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -84,18 +95,18 @@ class BoardForm extends Component {
             <div className='modal-header'>
               <button className="close-modal-button"
                 onClick={this.closeModal}>X</button>
-              <h3>{titleText}</h3>
+              <h3>{title}</h3>
             </div>
             <form onSubmit={this.handleSubmit}>
               <label className="modal-form-label"
                 htmlFor="form-board-name">Name</label>
               <input id="form-board-name" type='text'
-                className="form-board-name"
-                ref="name"
-                value={this.state.board.name}
+                className="form-board-name" ref="name"
+                value={this.state.list.name}
                 onChange={this.update('name')} required />
               <button
                 className='small-btn green-btn'>{submitText}</button>
+              {deleteButton}
             </form>
           </div>
         </Modal>
@@ -104,4 +115,4 @@ class BoardForm extends Component {
   }
 }
 
-export default BoardForm;
+export default ListForm;

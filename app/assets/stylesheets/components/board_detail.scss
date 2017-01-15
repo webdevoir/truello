@@ -1,5 +1,20 @@
 .board-detail-container {
+  display: flex;
+  justify-content: space-between;
   margin: 15px;
+
+  .board-detail-header {
+    margin-left: 15px;
+    border: 1px solid transparent;
+    padding: 3px;
+  }
+
+  .board-detail-header:hover {
+    cursor: pointer;
+    background-color: $lightest-gray;
+    border: 1px solid $gray;
+    border-radius: 3px;
+  }
   .list-index {
     display: flex;
     justify-content: space-between;

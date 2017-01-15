@@ -97,8 +97,7 @@ class SessionForm extends React.Component {
                 <input id="form-name" type="text"
                   value={this.state.username}
                   onChange={this.update("username")}
-                  className="form-input block"
-                  required />
+                  className="form-input block" />
               </div>
               <div className="form-input-container">
               <label className="form-label"
@@ -106,8 +105,7 @@ class SessionForm extends React.Component {
                 <input id="form-password" type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
-                  className="form-input block"
-                  required />
+                  className="form-input block" />
               </div>
               <button className="block btn green-btn form-btn">
                 {this.submitText()}</button>

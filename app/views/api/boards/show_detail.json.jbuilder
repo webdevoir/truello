@@ -1,4 +1,6 @@
-json.extract! @board, :id, :name
+json.board do
+  json.partial! 'board', board: @board
+end
 json.lists do
   @board.lists.each do |list|
     json.set! list.id do

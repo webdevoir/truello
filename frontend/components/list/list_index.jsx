@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ListIndexItem from './list_index_item';
+import ListFormContainer from './list_form_container';
 
-const ListIndex = ({ lists }) => (
-  <ul className="list-index">
-    {
-      lists.map(list =>
-        <ListIndexItem list={list} key={list.id} />
-      )
-    }
-  </ul>
-);
+class ListIndex extends Component {
+  componentDidMount() {
+    this.props.fetchLists(this.props.boardId);
+  }
+
+  render() {
+    const boardId = this.props.boardId;
+    return (
+      <ul className="list-index">
+        {
+          this.props.lists.map(list =>
+            <ListIndexItem list={list} key={list.id} boardId={boardId} />
+          )
+        }
+        <ListFormContainer formType='new' boardId={boardId} />
+      </ul>
+    );
+  }
+}
 
 export default ListIndex;

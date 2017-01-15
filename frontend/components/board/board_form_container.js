@@ -1,20 +1,24 @@
 import { connect } from 'react-redux';
-import { createBoard, updateBoardDetail } from '../../actions/board_actions';
+import { createBoard, updateBoard } from '../../actions/board_actions';
+import { selectBoard } from '../../reducers/selectors';
 import BoardForm from './board_form';
 
 const mapStateToProps = (state, ownProps) => {
   let board = { name: '' };
   if (ownProps.formType === 'edit') {
-    board = state.boardDetail;
+    board = selectBoard(state, ownProps.boardId);
   }
-  return { board };
+  return {
+    board,
+    errors: state.session.errors
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const action = ownProps.formType === 'new' ? createBoard :
-    updateBoardDetail;
+    updateBoard;
   return {
-    action: boardDetail => dispatch(action(boardDetail))
+    action: board => dispatch(action(board))
   };
 };
 

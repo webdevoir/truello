@@ -10,9 +10,13 @@
   color: $black;
 }
 
-.modal-container {
+.new-modal-container {
   display: block;
   height: 100%;
+}
+
+.edit-modal-container {
+  display: inline-block;
 }
 
 .modal-content {
