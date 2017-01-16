@@ -83,7 +83,7 @@ class ListForm extends Component {
     }
     return (
       <div className="list-index-item list-form" onClick={this.openModal}>
-        {text}
+        <h3>{text}</h3>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

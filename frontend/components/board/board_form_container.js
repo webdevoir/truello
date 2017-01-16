@@ -9,8 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     board = selectBoard(state, ownProps.boardId);
   }
   return {
-    board,
-    errors: state.session.errors
+    board
   };
 };
 

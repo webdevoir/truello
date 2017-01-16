@@ -1,44 +1,99 @@
 .board-content {
   margin: auto;
   max-width: 1300px;
-}
 
-.board-content h1 {
-  color: $gray;
-  margin: 15px 0 0 15px;
-}
+  h1 {
+    color: $gray;
+    margin: 15px 0 0 15px;
+  }
 
-.board-index {
-  display: flex;
-  flex-wrap: wrap;
-}
+  .board-index {
+    display: flex;
+    flex-wrap: wrap;
 
-.board-box {
-  width: 20%;
-  height: 100px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 3px;
-  margin: 15px;
-  font-family: sans-serif;
-}
+    a {
+      display: block;
+      height: 100%;
+    }
 
-.blue-board-box {
-  background-color: $blue;
-  border: 1px solid $dark-blue;
-  color: $white;
-}
+    span {
+      padding: 10px;
+      display: inline-block;
+    }
 
-.blue-board-box:hover {
-  background-color: $dark-blue;
-}
+    .board-box {
+      width: 20%;
+      height: 100px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 3px;
+      margin: 15px;
+      font-family: sans-serif;
+      box-shadow: 3px 3px 3px $black;
+    }
 
-.board-index a {
-  display: block;
-  height: 100%;
-}
+    .blue-board-box {
+      background-color: $blue;
+      border: 1px solid $dark-blue;
+      color: $white;
+    }
 
-.board-index span {
-  padding: 10px;
-  display: inline-block;
+    .blue-board-box:hover {
+      background-color: $dark-blue;
+    }
+
+    .create-board-box {
+      position: relative;
+      color: $gray;
+      background-color: $lightest-gray;
+      border: 1px solid $gray;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $light-gray;
+        color: $black;
+      }
+
+      .create-pop-up-container {
+        z-index: 2;
+        position: absolute;
+        top: -1%;
+        left: -1%;
+        right: -2%;
+        bottom: -50%;
+        display: none;
+        background-color: $white;
+        border: 1px solid $black;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: 15px;
+        flex-direction: column;
+
+        h3 {
+          text-align: center;
+        }
+
+        .create-pop-up-header {
+          border-bottom: 1px solid $light-gray;
+          color: $light-gray;
+          padding-bottom: 5px;
+        }
+
+        .close-button {
+          float: right;
+        }
+
+        label {
+          margin: 10px 0;
+          display: block;
+        }
+
+        input {
+          width: 95%;
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }

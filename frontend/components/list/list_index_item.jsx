@@ -1,12 +1,11 @@
 import React from 'react';
-import ListFormContainer from './list_form_container';
+import ListUpdateFormContainer from './list_update_form_container';
+import CardIndexContainer from '../card/card_index_container';
 
 const ListIndexItem = ({ list, boardId }) => (
   <li className="list-index-item">
-    <div>
-      <h3>{list.name}</h3>
-      <ListFormContainer formType='edit' boardId={boardId} list={list} />
-    </div>
+    <ListUpdateFormContainer boardId={boardId} list={list} />
+    <CardIndexContainer listId={list.id} />
   </li>
 );
 

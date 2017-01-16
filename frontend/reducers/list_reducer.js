@@ -1,4 +1,4 @@
-import { RECEIVE_LISTS, RECEIVE_LIST, REMOVE_LIST, CLEAR_LISTS } from
+import { RECEIVE_LISTS, RECEIVE_LIST, REMOVE_LIST } from
   '../actions/list_actions';
 import merge from 'lodash/merge';
 
@@ -13,8 +13,6 @@ const listReducer = (state = {}, action) => {
       const newState = merge({}, state);
       delete newState[action.list.id];
       return newState;
-    case CLEAR_LISTS:
-      return {};
     default:
       return state;
   }

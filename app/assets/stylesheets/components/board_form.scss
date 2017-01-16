@@ -1,18 +1,12 @@
-.new-board-box {
-  color: $gray;
-  background-color: $lightest-gray;
-  border: 1px solid $gray;
-}
-
-.new-board-box:hover {
-  cursor: pointer;
-  background-color: $light-gray;
-  color: $black;
-}
-
 .new-modal-container {
-  display: block;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  background-color: $white;
+  border: 1px solid $black;
+  // height: 100%;
+  z-index: 1;
 }
 
 .edit-modal-container {

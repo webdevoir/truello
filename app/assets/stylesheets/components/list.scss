@@ -1,11 +1,7 @@
 .list-index {
   display: flex;
+  justify-content: space-between;
   margin: 25px;
-
-  h3 {
-    font-weight: bold;
-    font-size: 13px;
-  }
 
   .list-index-item {
     width: 250px;
@@ -13,5 +9,69 @@
     border-radius: 4px;
     margin-right: 25px;
     background-color: $lightest-gray;
+    padding: 5px 7px;
+    position: relative;
+
+    i {
+      float: right;
+      font-size: 16px;
+    }
+
+    i:hover {
+      cursor: pointer;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .update-pop-up-container {
+      z-index: 2;
+      position: absolute;
+      top: 15%;
+      left: 90%;
+      display: none;
+      background-color: $white;
+      border: 1px solid $black;
+      border-radius: 3px;
+      padding: 10px 5px;
+      font-size: 15px;
+      flex-direction: column;
+      width: 250px;
+      height: 125px;
+      font-family: $sans-serif;
+
+      h3 {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .update-pop-up-header {
+        border-bottom: 1px solid $light-gray;
+        color: $light-gray;
+        padding-bottom: 5px;
+      }
+
+      .close-button {
+        float: right;
+      }
+
+      label {
+        margin: 10px 0;
+        display: block;
+        font-weight: bold;
+      }
+
+      input {
+        width: 95%;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-right: 10px;
+      }
+    }
   }
 }

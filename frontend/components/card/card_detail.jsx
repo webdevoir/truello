@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import Modal from 'react-modal';
 import merge from 'lodash/merge';
 
@@ -15,23 +16,27 @@ const customStyles = {
   }
 };
 
-class BoardForm extends Component {
+class CardDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false,
-      board: props.board
+      modalIsOpen: true,
+      card: props.card
     };
+
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getParent = this.getParent.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    this.state.board = newProps.board;
+  componentWillMount() {
+    Modal.setAppElement('body');
+  }
+
+  componentDidMount() {
+    this.props.fetchCard(this.props.params.cardId);
   }
 
   openModal() {
@@ -43,40 +48,29 @@ class BoardForm extends Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  getParent() {
-    const className = this.props.formType === 'new' ?
-      '.new-modal-container' : '.edit-modal-container';
-    return document.querySelector(className);
+    const boardId = this.props.params.boardId;
+    this.setState({modalIsOpen: false},
+      this.props.router.push(`/boards/${boardId}`));
   }
 
   update(prop) {
     return e => {
-      const board = merge({}, this.state.board, {
+      const card = merge({}, this.state.card, {
         [prop]: e.target.value
       });
-      this.setState({ board });
+      this.setState({ card });
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state.board).then(this.closeModal);
+    this.props.updateCard(this.state.card).then(this.closeModal);
+    // this.props.action(this.state.list).then(this.closeModal);
   }
 
   render() {
-    const titleText = this.props.formType === 'new' ? 'Create Board' :
-      'Rename Board';
-    const submitText = this.props.formType === 'new' ? 'Create' :
-      'Rename';
-    const className = this.props.formType === 'new' ?
-      'new-modal-container' : 'edit-modal-container';
-      //parentSelector={this.getParent}
     return (
-      <div className={className} onClick={this.openModal}>
-        {this.props.children}
+      <div className="list-index-item list-form" onClick={this.openModal}>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -88,18 +82,17 @@ class BoardForm extends Component {
             <div className='modal-header'>
               <button className="close-modal-button"
                 onClick={this.closeModal}>X</button>
-              <h3>{titleText}</h3>
+              <h3>Card Detail</h3>
             </div>
             <form onSubmit={this.handleSubmit}>
               <label className="modal-form-label"
                 htmlFor="form-board-name">Name</label>
               <input id="form-board-name" type='text'
-                className="form-board-name"
-                ref="name"
-                value={this.state.board.name}
+                className="form-board-name" ref="name"
+                value={this.state.card.name}
                 onChange={this.update('name')} required />
               <button
-                className='small-btn green-btn'>{submitText}</button>
+                className='small-btn green-btn'>Submit</button>
             </form>
           </div>
         </Modal>
@@ -108,4 +101,4 @@ class BoardForm extends Component {
   }
 }
 
-export default BoardForm;
+export default withRouter(CardDetail);

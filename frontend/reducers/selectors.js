@@ -7,6 +7,18 @@ export const selectBoard = (state, boardId) => {
   return state.boards[boardId] || {};
 };
 
-export const selectLists = (state) => (
+export const selectLists = state => (
   Object.keys(state.lists).map(id => state.lists[id])
 );
+
+export const selectCards = (state, listId) => {
+  listId = parseInt(listId);
+  return Object.keys(state.cards)
+    .filter(id => state.cards[id].list_id === listId)
+    .map(id => state.cards[id]);
+};
+
+export const selectCard = (state, cardId) => {
+  cardId = parseInt(cardId);
+  return state.cards[cardId] || {};
+};

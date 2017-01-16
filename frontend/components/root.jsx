@@ -6,6 +6,7 @@ import SplashContainer from './splash/splash_container';
 import SessionFormContainer from './session_form/session_form_container';
 import BoardIndexContainer from './board/board_index_container';
 import BoardDetailContainer from './board/board_detail_container';
+import CardDetailContainer from './card/card_detail_container';
 
 const Root = ({ store }) => {
 
@@ -36,7 +37,11 @@ const Root = ({ store }) => {
           <Route path="/boards" component={BoardIndexContainer}
             onEnter={_ensureLoggedIn} />
           <Route path="/boards/:boardId" component={BoardDetailContainer}
-              onEnter={_ensureLoggedIn} />
+              onEnter={_ensureLoggedIn}>
+              <Route path="/boards/:boardId/cards/:cardId"
+                component={CardDetailContainer}
+                onEnter={_ensureLoggedIn} />
+          </Route>
         </Route>
       </Router>
     </Provider>
