@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import { selectCard } from '../../reducers/selectors';
+import { selectCard, selectLists } from '../../reducers/selectors';
 import { fetchCard, updateCard, deleteCard } from
   '../../actions/card_actions';
 import CardDetail from './card_detail';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    card: selectCard(state, ownProps.params.cardId)
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  card: selectCard(state, ownProps.params.cardId),
+  lists: selectLists(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchCard: id => dispatch(fetchCard(id)),

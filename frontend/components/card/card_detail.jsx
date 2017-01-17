@@ -12,7 +12,8 @@ const customStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     padding               : '5px',
-    width                 : '250px'
+    width                 : '250px',
+    border                : '1px solid black',
   }
 };
 
@@ -30,6 +31,7 @@ class CardDetail extends Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteCard = this.deleteCard.bind(this);
+    this.createListOptions = this.createListOptions.bind(this);
   }
 
   componentDidMount() {
@@ -72,6 +74,24 @@ class CardDetail extends Component {
     this.props.deleteCard(this.state.card.id).then(this.closeModal);
   }
 
+  createListOptions() {
+    const cardListId = this.props.card.list_id;
+    const listOptions = this.props.lists.map(list => (
+      <option key={list.id} value={list.id}>
+        {list.name}
+      </option>
+    ));
+    return (
+      <div>
+        <label htmlFor="form-card-lists">Move to List</label>
+        <select id="form-card-lists" value={cardListId}
+          onChange={this.update('list_id')}>
+          {listOptions}
+        </select>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div onClick={this.openModal}>
@@ -89,17 +109,16 @@ class CardDetail extends Component {
               <h3>Card Detail</h3>
             </div>
             <form onSubmit={this.handleSubmit}>
-              <label className="modal-form-label"
-                htmlFor="form-card-name">Name</label>
+              <label htmlFor="form-card-name">Name</label>
               <input id="form-card-name" type='text'
                 className="form-card-name" ref="name"
                 value={this.state.card.name}
                 onChange={this.update('name')} />
-              <label className="modal-form-label"
-                htmlFor="form-card-desc">Description</label>
+              <label htmlFor="form-card-desc">Description</label>
               <textarea id="form-card-desc" className="form-card-desc"
                 onChange={this.update('description')}
                 value={this.state.card.description} />
+              {this.createListOptions()}
               <button
                 className='small-btn green-btn'>Edit Card</button>
               <button type="button" className='small-btn red-btn'
