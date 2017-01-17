@@ -3,6 +3,7 @@ import * as CardAPIUtil from '../util/card_api_util';
 export const RECEIVE_CARDS = 'RECEIVE_CARDS';
 export const RECEIVE_CARD = 'RECEIVE_CARD';
 export const REMOVE_CARD = 'REMOVE_CARD';
+export const CLEAR_CARDS = 'CLEAR_CARDS';
 
 export const fetchCards = boardId => dispatch => (
   CardAPIUtil.fetchCards(boardId)
@@ -28,6 +29,10 @@ export const deleteCard = id => dispatch => (
   CardAPIUtil.deleteCard(id)
     .then(card => dispatch(removeCard(card)))
 );
+
+export const clearCards = () => ({
+  type: CLEAR_CARDS
+});
 
 const receiveCards = cards => ({
   type: RECEIVE_CARDS,

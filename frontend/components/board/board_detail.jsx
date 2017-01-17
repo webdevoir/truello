@@ -16,6 +16,11 @@ class BoardDetail extends Component {
         ));
   }
 
+  componentWillUnmount() {
+    this.props.clearCards();
+    this.props.clearLists();
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.params.boardId !== newProps.params.boardId) {
       this.props.fetchBoard(newProps.params.boardId)
