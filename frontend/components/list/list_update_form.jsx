@@ -41,11 +41,11 @@ class ListUpdateForm extends Component {
 
   show(e) {
     e.stopPropagation();
-    this.setState({show: true});
+    this.setState({show: true}, () => this.refs.name.focus());
   }
 
   hide() {
-    this.setState({show: false});
+    this.setState({show: false, list: this.props.list});
   }
 
   update(prop) {

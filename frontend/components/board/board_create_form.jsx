@@ -7,7 +7,7 @@ class BoardCreateForm extends Component {
     super(props);
     this.state = {
       show: false,
-      board: { name: '' }
+      board: props.board
     };
 
     this.show = this.show.bind(this);
@@ -15,29 +15,33 @@ class BoardCreateForm extends Component {
     this.close = this.close.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('click',
-      this.hide, true);
+      this.handleClickOutside, true);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click',
-    this.hide, true);
+    this.handleClickOutside, true);
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState({ board: newProps.board });
+  handleClickOutside(event) {
+    const domNode = ReactDOM.findDOMNode(this);
+    if (!domNode || !domNode.contains(event.target)) {
+        this.hide();
+    }
   }
 
   show(e) {
     e.stopPropagation();
-    this.setState({ show: true });
+    this.setState({ show: true }, () => this.refs.name.focus());
   }
 
   hide() {
-    this.setState({ show: false, board: { name: '' } });
+    this.setState({ show: false, board: this.props.board });
   }
 
   close(e) {
@@ -58,7 +62,7 @@ class BoardCreateForm extends Component {
     e.preventDefault();
     if (this.state.board.name) {
       this.props.createBoard(this.state.board)
-        .then(this.hide.bind(this, e));
+        .then(this.hide);
     } else {
       this.refs.name.focus();
     }
@@ -69,7 +73,6 @@ class BoardCreateForm extends Component {
     if (this.state.show) {
       outerClassName = "create-board-box-no-hover";
       className = "flex";
-      this.refs.name.focus();
     } else {
       outerClassName = "create-board-box";
       className = "hide";

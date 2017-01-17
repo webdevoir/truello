@@ -14,16 +14,24 @@ class BoardEditForm extends Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.close = this.close.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('click',
-      this.hide, true);
+      this.handleClickOutside, true);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click',
-      this.hide, true);
+      this.handleClickOutside, true);
+  }
+
+  handleClickOutside(event) {
+    const domNode = ReactDOM.findDOMNode(this);
+    if (!domNode || !domNode.contains(event.target)) {
+        this.hide();
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -32,11 +40,11 @@ class BoardEditForm extends Component {
 
   show(e) {
     e.stopPropagation();
-    this.setState({show: true});
+    this.setState({show: true}, () => this.refs.name.focus());
   }
 
   hide() {
-    this.setState({show: false});
+    this.setState({show: false, board: this.props.board});
   }
 
   close(e) {
