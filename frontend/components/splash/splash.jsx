@@ -6,7 +6,7 @@ const Splash = ({ demoLogin, router }) => (
     <div className="splash-box">
       <h2>Manage your projects with</h2>
       <h1><i className="fa fa-book"></i> Truello</h1>
-      <div className="link-group">
+      <div>
         <Link to="/login" className="btn blue-btn">Log In</Link>
         <Link to="/signup"
           className="btn green-btn">Sign up</Link>

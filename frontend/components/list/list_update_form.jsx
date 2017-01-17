@@ -29,7 +29,7 @@ class ListUpdateForm extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.state.list = newProps.list;
+    this.setState({ list: newProps.list });
   }
 
   handleClickOutside(event) {
@@ -39,17 +39,12 @@ class ListUpdateForm extends Component {
     }
   }
 
-  show() {
-    this.refs.popUp.style.display = 'flex';
+  show(e) {
+    e.stopPropagation();
     this.setState({show: true});
   }
 
-  afterOpenModal() {
-    this.refs.name.focus();
-  }
-
   hide() {
-    this.refs.popUp.style.display = 'none';
     this.setState({show: false});
   }
 
@@ -64,7 +59,11 @@ class ListUpdateForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateList(this.state.list).then(this.hide);
+    if (this.state.list.name) {
+      this.props.updateList(this.state.list).then(this.hide);
+    } else {
+      this.refs.name.focus();
+    }
   }
 
   deleteList() {
@@ -73,22 +72,33 @@ class ListUpdateForm extends Component {
 
   render() {
     const list = this.props.list;
+    let className;
+    if (this.state.show) {
+      className = 'flex';
+    } else {
+      className = 'hide';
+    }
     return (
-      <div>
-        <h3>{list.name} <i className="fa fa-ellipsis-h"
-          onClick={this.show}></i></h3>
-          <div className='update-pop-up-container' ref='popUp'>
+      <div className="pop-up-anchor">
+        <div>
+          <h3>{list.name}</h3>
+          <span className="header-right">
+            <i className="fa fa-ellipsis-h" onClick={this.show}></i>
+          </span>
+        </div>
+        <div className={`update-pop-up-container ${className}`} ref='popUp'>
             <div className='update-pop-up-header'>
               <button className="close-button"
-                onClick={() => this.hide()}>X</button>
+                onClick={this.hide}>X</button>
               <h3>Update List</h3>
             </div>
             <form onSubmit={this.handleSubmit}>
               <label
-                htmlFor={`form-board-name-${list.id}`}>Name</label>
-              <input id={`form-board-name-${list.id}`} type='text'
+                htmlFor={`form-list-name-${list.id}`}>Name</label>
+              <input id={`form-list-name-${list.id}`} type='text'
                 value={this.state.list.name}
-                onChange={this.update('name')} required />
+                onChange={this.update('name')}
+                ref="name" />
               <button
                 className='small-btn green-btn'>Update</button>
               <button type="button" className='small-btn red-btn'

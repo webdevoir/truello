@@ -1,5 +1,6 @@
 html {
   position: relative;
+  width: 100%;
   height: 100%;
 }
 
@@ -80,4 +81,12 @@ textarea {
 
 .gray-icon {
   color: $light-gray;
+}
+
+.hide {
+  display: none;
+}
+
+.flex {
+  display: flex;
 }

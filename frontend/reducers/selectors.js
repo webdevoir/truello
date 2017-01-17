@@ -4,7 +4,7 @@ export const selectBoards = state => (
 
 export const selectBoard = (state, boardId) => {
   boardId = parseInt(boardId);
-  return state.boards[boardId] || {};
+  return state.boards[boardId] || { name: '' };
 };
 
 export const selectLists = state => (

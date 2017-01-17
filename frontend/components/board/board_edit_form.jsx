@@ -2,19 +2,18 @@ import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import merge from 'lodash/merge';
 
-class BoardCreateForm extends Component {
+class BoardEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       show: false,
-      board: { name: '' }
+      board: props.board
     };
-
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
-    this.close = this.close.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.close = this.close.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +23,7 @@ class BoardCreateForm extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('click',
-    this.hide, true);
+      this.hide, true);
   }
 
   componentWillReceiveProps(newProps) {
@@ -33,11 +32,11 @@ class BoardCreateForm extends Component {
 
   show(e) {
     e.stopPropagation();
-    this.setState({ show: true });
+    this.setState({show: true});
   }
 
   hide() {
-    this.setState({ show: false, board: { name: '' } });
+    this.setState({show: false});
   }
 
   close(e) {
@@ -57,47 +56,43 @@ class BoardCreateForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.board.name) {
-      this.props.createBoard(this.state.board)
-        .then(this.hide.bind(this, e));
+      this.props.updateBoard(this.state.board).then(this.hide);
     } else {
       this.refs.name.focus();
     }
   }
 
   render() {
-    let outerClassName, className;
+    let className;
     if (this.state.show) {
-      outerClassName = "create-board-box-no-hover";
-      className = "flex";
-      this.refs.name.focus();
+      className = 'flex';
     } else {
-      outerClassName = "create-board-box";
-      className = "hide";
+      className = 'hide';
     }
     return (
-      <li className={`board-box ${outerClassName}`}
-        onClick={this.show}>
-        <span>Create a new board...</span>
-        <div className={`create-pop-up-container ${className}`} ref='popUp'>
-          <div className='create-pop-up-header'>
-            <button type="button" className="close-button"
+      <div className='board-detail-header-container' onClick={this.show}>
+        <h1 className='board-detail-header'>{this.props.board.name}</h1>
+        <div className={`update-pop-up-container ${className}`} ref='popUp'>
+          <div className='update-pop-up-header'>
+            <button className="close-button"
               onClick={this.close}>X</button>
-            <h3>Create Board</h3>
+            <h3>Rename Board</h3>
           </div>
           <form onSubmit={this.handleSubmit}>
             <label
               htmlFor="form-board-name">Name</label>
             <input id="form-board-name" type='text'
+              ref="name"
               value={this.state.board.name}
-              onChange={this.update('name')} ref="name" />
+              onChange={this.update('name')} />
             <button
-              className='small-btn green-btn'>Create</button>
+              className='small-btn green-btn'>Update</button>
           </form>
         </div>
-      </li>
+      </div>
     );
   }
 
 }
 
-export default BoardCreateForm;
+export default BoardEditForm;

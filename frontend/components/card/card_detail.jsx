@@ -29,10 +29,7 @@ class CardDetail extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentWillMount() {
-    Modal.setAppElement('body');
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
   componentDidMount() {
@@ -49,8 +46,8 @@ class CardDetail extends Component {
 
   closeModal() {
     const boardId = this.props.params.boardId;
-    this.setState({modalIsOpen: false},
-      this.props.router.push(`/boards/${boardId}`));
+    this.setState({modalIsOpen: false});
+    this.props.router.push(`/boards/${boardId}`);
   }
 
   update(prop) {
@@ -64,13 +61,20 @@ class CardDetail extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateCard(this.state.card).then(this.closeModal);
-    // this.props.action(this.state.list).then(this.closeModal);
+    if (this.state.card.name) {
+      this.props.updateCard(this.state.card).then(this.closeModal);
+    } else {
+      this.refs.name.focus();
+    }
+  }
+
+  deleteCard() {
+    this.props.deleteCard(this.state.card.id).then(this.closeModal);
   }
 
   render() {
     return (
-      <div className="list-index-item list-form" onClick={this.openModal}>
+      <div onClick={this.openModal}>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -86,13 +90,20 @@ class CardDetail extends Component {
             </div>
             <form onSubmit={this.handleSubmit}>
               <label className="modal-form-label"
-                htmlFor="form-board-name">Name</label>
-              <input id="form-board-name" type='text'
-                className="form-board-name" ref="name"
+                htmlFor="form-card-name">Name</label>
+              <input id="form-card-name" type='text'
+                className="form-card-name" ref="name"
                 value={this.state.card.name}
-                onChange={this.update('name')} required />
+                onChange={this.update('name')} />
+              <label className="modal-form-label"
+                htmlFor="form-card-desc">Description</label>
+              <textarea id="form-card-desc" className="form-card-desc"
+                onChange={this.update('description')}
+                value={this.state.card.description} />
               <button
-                className='small-btn green-btn'>Submit</button>
+                className='small-btn green-btn'>Edit Card</button>
+              <button type="button" className='small-btn red-btn'
+                onClick={this.deleteCard}>Delete</button>
             </form>
           </div>
         </Modal>

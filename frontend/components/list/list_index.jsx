@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ListIndexItem from './list_index_item';
-import ListFormContainer from './list_form_container';
+import ListCreateFormContainer from './list_create_form_container';
 
 class ListIndex extends Component {
   render() {
@@ -12,7 +12,7 @@ class ListIndex extends Component {
             <ListIndexItem list={list} key={list.id} boardId={boardId} />
           )
         }
-        <ListFormContainer formType='new' boardId={boardId} />
+        <ListCreateFormContainer boardId={boardId} />
       </ul>
     );
   }

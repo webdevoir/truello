@@ -2,17 +2,67 @@
   display: flex;
   justify-content: space-between;
   margin: 15px;
+  height: calc(100vh - 81px);
+  overflow: auto;
 
-  .board-detail-header {
-    margin-left: 15px;
-    border: 1px solid transparent;
-    padding: 3px;
-  }
+  .board-detail-header-container {
+    margin-left: 20px;
+    display: inline-block;
+    position: relative;
 
-  .board-detail-header:hover {
-    cursor: pointer;
-    background-color: $lightest-gray;
-    border: 1px solid $gray;
-    border-radius: 3px;
+    .board-detail-header {
+      border: 1px solid transparent;
+      padding: 3px;
+      display: inline-block;
+    }
+
+    .board-detail-header:hover {
+      cursor: pointer;
+      background-color: $lightest-gray;
+      border: 1px solid $gray;
+      border-radius: 3px;
+    }
+
+    .update-pop-up-container {
+      z-index: 2;
+      position: absolute;
+      top: 120%;
+      left: 0%;
+      background-color: $white;
+      border: 1px solid $black;
+      border-radius: 3px;
+      padding: 10px;
+      font-size: 15px;
+      flex-direction: column;
+      height: 125px;
+      width: 250px;
+      font-family: $sans-serif;
+      font-weight: bold;
+
+      h3 {
+        text-align: center;
+      }
+
+      .update-pop-up-header {
+        border-bottom: 1px solid $light-gray;
+        color: $light-gray;
+        padding-bottom: 5px;
+      }
+
+      .close-button {
+        float: right;
+      }
+
+      label {
+        margin: 10px 0;
+        display: block;
+      }
+
+      input {
+        width: 95%;
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
   }
 }

@@ -2,10 +2,23 @@
   background-color: $white;
   border: 1px solid $black;
   border-radius: 3px;
-  padding: 7px;
-  margin: 5px 0;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .card-index-item:hover {
+  cursor: pointer;
+}
+
+.card-create-form, .card-create-form-no-hover  {
+  margin-top: 5px;
+  padding: 5px 7px;
+  border-radius: 3px;
+}
+
+.card-create-form:hover {
+  background-color: $light-gray;
   cursor: pointer;
 }

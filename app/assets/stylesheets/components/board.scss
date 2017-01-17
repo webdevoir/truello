@@ -42,17 +42,17 @@
       background-color: $dark-blue;
     }
 
-    .create-board-box {
+    .create-board-box:hover {
+      cursor: pointer;
+      background-color: $light-gray;
+      color: $black;
+    }
+
+    .create-board-box, .create-board-box-no-hover {
       position: relative;
       color: $gray;
       background-color: $lightest-gray;
       border: 1px solid $gray;
-
-      &:hover {
-        cursor: pointer;
-        background-color: $light-gray;
-        color: $black;
-      }
 
       .create-pop-up-container {
         z-index: 2;
@@ -61,7 +61,6 @@
         left: -1%;
         right: -2%;
         bottom: -50%;
-        display: none;
         background-color: $white;
         border: 1px solid $black;
         border-radius: 3px;

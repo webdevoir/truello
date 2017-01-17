@@ -1,18 +1,3 @@
-.new-modal-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  background-color: $white;
-  border: 1px solid $black;
-  // height: 100%;
-  z-index: 1;
-}
-
-.edit-modal-container {
-  display: inline-block;
-}
-
 .modal-content {
   font-family: $sans-serif;
   font-weight: bold;
@@ -33,7 +18,7 @@
     padding-bottom: 5px;
   }
 
-  .form-board-name {
+  .form-card-name, .form-card-desc {
     margin-bottom: 15px;
     width: 235px;
   }
@@ -43,6 +28,7 @@
   }
 
   button {
-    display: block;
+    margin-right: 10px;
+    display: inline;
   }
 }

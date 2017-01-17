@@ -1,25 +1,18 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import CardIndexItem from './card_index_item';
+import CardCreateFormContainer from './card_create_form_container';
 
-const openCard = (router, boardId, cardId) => {
-  const url = `/boards/${boardId}/cards/${cardId}`;
-  router.push(url);
-};
-
-const CardIndex = ({ cards, router }) => {
-  const boardId = router.params.boardId;
+const CardIndex = ({ cards, router, listId }) => {
   return (
   <ul>
     {
       cards.map(card => (
-        <li key={card.id} className='card-index-item'
-          onClick={() => openCard(router, boardId, card.id)}>
-          {card.name}
-        </li>
+        <CardIndexItem key={card.id} card={card} />
       ))
     }
+    <CardCreateFormContainer listId={listId}  />
   </ul>
   );
 };
 
-export default withRouter(CardIndex);
+export default CardIndex;
