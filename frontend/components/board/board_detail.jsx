@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import ListIndexContainer from '../list/list_index_container';
 import BoardEditFormContainer from './board_edit_form_container';
 import BoardMenuContainer from './board_menu_container';
@@ -13,7 +14,8 @@ class BoardDetail extends Component {
         .then(
           () =>
             this.props.fetchCards(this.props.params.boardId)
-        ));
+        ),
+      () => this.props.router.push('/boards'));
   }
 
   componentWillUnmount() {
@@ -49,4 +51,4 @@ class BoardDetail extends Component {
   }
 }
 
-export default BoardDetail;
+export default withRouter(BoardDetail);
