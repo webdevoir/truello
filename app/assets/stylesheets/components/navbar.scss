@@ -18,7 +18,7 @@
   }
 
   .user-name {
-    margin-right: 15px;
+    margin-right: 25px;
     display: inline-block;
   }
 
@@ -29,5 +29,10 @@
   .logo {
     margin: 5px 0 0 15px;
     font-style: italic;
+    opacity: .7;
+  }
+
+  .logo:hover {
+    opacity: 1;
   }
 }
