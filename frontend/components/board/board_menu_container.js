@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { deleteBoard } from '../../actions/board_actions';
 import BoardMenu from './board_menu';
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   deleteBoard: (id) => dispatch(deleteBoard(id))
 });
 

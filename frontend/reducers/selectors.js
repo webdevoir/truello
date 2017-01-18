@@ -1,6 +1,24 @@
-export const selectBoards = state => (
-  Object.keys(state.boards).map(id => state.boards[id])
-);
+export const selectBoards = state => {
+  const currentUser = state.session.currentUser;
+  if (currentUser) {
+    return Object.keys(state.boards)
+    .filter(id => state.boards[id].owner_id === currentUser.id)
+    .map(id => state.boards[id]);
+  } else {
+    return [];
+  }
+};
+
+export const selectSharedBoards = state => {
+  const currentUser = state.session.currentUser;
+  if (currentUser) {
+    return Object.keys(state.boards)
+      .filter(id => state.boards[id].owner_id !== state.session.currentUser.id)
+      .map(id => state.boards[id]);
+  } else {
+    return [];
+  }
+};
 
 export const selectBoard = (state, boardId) => {
   boardId = parseInt(boardId);
@@ -21,5 +39,6 @@ export const selectCards = (state, listId) => {
 
 export const selectCard = (state, cardId) => {
   cardId = parseInt(cardId);
-  return state.cards[cardId] || {};
+  return state.cards[cardId] ||
+    { name: '', description: '', list_id: '' };
 };

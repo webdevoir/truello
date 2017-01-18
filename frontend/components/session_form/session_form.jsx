@@ -9,6 +9,10 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
+  componentDidMount() {
+    this.refs.name.focus();
+  }
+
   componentDidUpdate() {
     this.redirectIfLoggedIn();
   }
@@ -39,9 +43,9 @@ class SessionForm extends React.Component {
     if (this.props.formType === "login") {
       return <button className="block btn blue-btn form-btn" type="button"
               onClick={() => this.props.processForm(
-                { username: "demo_user",
+                { username: "Guest",
                   password: "password" })}
-              >Demo User</button>;
+              >Guest User</button>;
     }
   }
 
@@ -97,7 +101,7 @@ class SessionForm extends React.Component {
                 <input id="form-name" type="text"
                   value={this.state.username}
                   onChange={this.update("username")}
-                  className="form-input block" />
+                  className="form-input block" ref="name" />
               </div>
               <div className="form-input-container">
               <label className="form-label"

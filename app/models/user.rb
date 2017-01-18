@@ -12,7 +12,18 @@ class User < ApplicationRecord
   has_many :boards,
            primary_key: :id,
            foreign_key: :owner_id,
-           class_name: :Board
+           class_name: :Board,
+           dependent: :destroy
+
+  has_many :sharings,
+           primary_key: :id,
+           foreign_key: :member_id,
+           class_name: :Sharing,
+           dependent: :destroy
+
+  has_many :shared_boards,
+           through: :sharings,
+           source: :board
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
@@ -38,6 +49,10 @@ class User < ApplicationRecord
 
   def is_password?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
+  end
+
+  def all_boards
+    boards + shared_boards
   end
 
   private

@@ -6,6 +6,7 @@
   .close-modal-button {
     float: right;
     border: none;
+    font-weight: normal;
   }
 
   .modal-header {
@@ -16,7 +17,7 @@
 
   .form-card-name, .form-card-desc {
     margin-bottom: 15px;
-    width: 235px;
+    width: 95%;
   }
 
   select {
@@ -35,5 +36,9 @@
   label {
     display: block;
     margin: 10px 0;
+  }
+
+  input, textarea {
+    font-size: 13px;
   }
 }

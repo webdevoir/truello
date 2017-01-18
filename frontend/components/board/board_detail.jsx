@@ -6,6 +6,11 @@ import BoardMenuContainer from './board_menu_container';
 import CardDetailContainer from '../card/card_detail_container';
 
 class BoardDetail extends Component {
+  constructor() {
+    super();
+    this.showBoardMenu = this.showBoardMenu.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchBoard(this.props.params.boardId)
       .then(
@@ -36,6 +41,13 @@ class BoardDetail extends Component {
     }
   }
 
+  showBoardMenu() {
+    const board = this.props.board;
+    if (board && (board.owner_id === this.props.currentUserId)) {
+      return <BoardMenuContainer boardId={this.props.params.boardId} />;
+    }
+  }
+
   render() {
     const boardId = this.props.params.boardId;
     return (
@@ -45,7 +57,7 @@ class BoardDetail extends Component {
           <BoardEditFormContainer boardId={boardId} />
           <ListIndexContainer boardId={boardId} />
         </div>
-        <BoardMenuContainer boardId={boardId} />
+        {this.showBoardMenu()}
       </div>
     );
   }

@@ -13,7 +13,7 @@ const Splash = ({ demoLogin, router }) => (
       </div>
       <button className="btn blue-btn demo-button"
         onClick={() => demoLogin().then(() => router.push('/boards'))}
-        >Demo User</button>
+        >Guest User</button>
     </div>
   </div>
 );

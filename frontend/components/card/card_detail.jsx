@@ -12,8 +12,8 @@ const customStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     padding               : '5px',
-    width                 : '250px',
-    border                : '1px solid black',
+    width                 : '400px',
+    border                : '1px solid #868c85',
   }
 };
 
@@ -35,7 +35,12 @@ class CardDetail extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchCard(this.props.params.cardId);
+    this.props.fetchCard(this.props.params.cardId)
+      .fail(() => this.props.router.push('/boards'));
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({ card: newProps.card });
   }
 
   openModal() {

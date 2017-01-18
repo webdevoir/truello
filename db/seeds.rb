@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-demo = User.create!(username: 'demo_user', password: 'password')
+demo = User.create!(username: 'Guest', password: 'password')
+george = User.create!(username: 'George', password: 'password')
 
 board1 = Board.create!(name: 'Production Workflow', owner: demo)
 list11 = List.create!(name: 'In Progress', board: board1)
@@ -72,3 +73,26 @@ Card.create!(name: "Helicopter tour", list: list43, list_order: 0)
 Card.create!(name: "Whale watching", list: list43, list_order: 1)
 Card.create!(name: "Nature Trail", list: list43, list_order: 2)
 Card.create!(name: "Relax on the beach!", list: list43, list_order: 3)
+
+# George
+
+board5 = Board.create!(name: 'Fancy Living', owner: george)
+list51 = List.create!(name: 'To Do', board: board5)
+Card.create!(name: "Find recipes", list: list51, list_order: 0)
+Card.create!(name: "Plan workout schedule", list: list51, list_order: 1)
+
+list52 = List.create!(name: 'Done', board: board5)
+Card.create!(name: "Research Diets", list: list52, list_order: 0)
+
+list53 = List.create!(name: 'Healthy Recipes', board: board5)
+Card.create!(name: "Winter Minestrone", list: list53, list_order: 0)
+Card.create!(name: "Sweet Potato and Egg Breakfast", list: list53,
+  list_order: 1)
+
+list54 = List.create!(name: 'Workouts', board: board5)
+Card.create!(name: "Full-body Workout", list: list54, list_order: 0)
+Card.create!(name: "Abs Workout", list: list54, list_order: 1)
+Card.create!(name: "30-minute Run", list: list54, list_order: 2)
+
+Sharing.create!(board: board1, member: george)
+Sharing.create!(board: board5, member: demo)
