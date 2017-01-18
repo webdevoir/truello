@@ -84,7 +84,7 @@ class CardDetail extends Component {
     return (
       <div>
         <label htmlFor="form-card-lists">Move to List</label>
-        <select id="form-card-lists" value={cardListId}
+        <select id="form-card-lists" value={this.state.card.list_id}
           onChange={this.update('list_id')}>
           {listOptions}
         </select>

@@ -26,6 +26,9 @@ class Api::CardsController < ApplicationController
 
   def update
     @card = Card.find(params[:id])
+    unless @card.list_id == params[:card][:list_id]
+      @card.list_order = Card.get_next_list_order(params[:card][:list_id])
+    end
     if @card.update_attributes(card_params)
       render :show
     else

@@ -15,7 +15,8 @@ export const selectCards = (state, listId) => {
   listId = parseInt(listId);
   return Object.keys(state.cards)
     .filter(id => state.cards[id].list_id === listId)
-    .map(id => state.cards[id]);
+    .map(id => state.cards[id])
+    .sort((a, b) => a.list_order - b.list_order);
 };
 
 export const selectCard = (state, cardId) => {
