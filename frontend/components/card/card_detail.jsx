@@ -111,7 +111,7 @@ class CardDetail extends Component {
             <div className='modal-header'>
               <button className="close-modal-button"
                 onClick={this.closeModal}>X</button>
-              <h3>Card Detail</h3>
+              <h3>Card Details</h3>
             </div>
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="form-card-name">Name</label>
@@ -122,7 +122,8 @@ class CardDetail extends Component {
               <label htmlFor="form-card-desc">Description</label>
               <textarea rows="5" id="form-card-desc" className="form-card-desc"
                 onChange={this.update('description')}
-                value={this.state.card.description} />
+                value={this.state.card.description}
+                placeholder="Add description..." />
               {this.createListOptions()}
               <button
                 className='small-btn green-btn'>Edit Card</button>

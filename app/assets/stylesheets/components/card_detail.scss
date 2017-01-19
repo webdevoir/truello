@@ -2,6 +2,7 @@
   font-family: $sans-serif;
   font-weight: bold;
   font-size: 14px;
+  padding: 10px 10px 20px 10px;
 
   .close-modal-button {
     float: right;
@@ -17,7 +18,7 @@
 
   .form-card-name, .form-card-desc {
     margin-bottom: 15px;
-    width: 95%;
+    width: 97%;
   }
 
   select {
