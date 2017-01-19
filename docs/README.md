@@ -1,10 +1,10 @@
 # Truello
 
-[Heroku link][heroku]
+[Truello live][truello]
 
 [Trello link][trello]
 
-[heroku]: https://truello.herokuapp.com
+[truello]: http://www.truello.io
 [trello]: https://trello.com/b/TsgVCryN/truello
 
 ## Minimum Viable Product

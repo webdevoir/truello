@@ -1,11 +1,14 @@
 .list-index {
   display: flex;
   margin: 25px;
+  color: $black;
+  font-family: $sans-serif;
 
   .list-index-item {
     align-self: flex-start;
     width: 250px;
     border: 1px solid $gray;
+    box-shadow: 0 2px $gray;
     border-radius: 4px;
     margin-right: 25px;
     background-color: $lightest-gray;
@@ -29,7 +32,7 @@
 
     h3 {
       font-weight: bold;
-      font-size: 13px;
+      font-size: 15px;
       display: inline-block;
     }
 
@@ -45,7 +48,7 @@
       font-size: 15px;
       flex-direction: column;
       width: 250px;
-      height: 125px;
+      height: 130px;
       font-family: $sans-serif;
 
       h3 {
@@ -74,7 +77,7 @@
         width: 95%;
         display: block;
         margin-bottom: 10px;
-        font-size: 13px;
+        font-size: 14px;
       }
 
       button {
@@ -94,7 +97,7 @@
       padding: 10px 5px;
       font-size: 15px;
       flex-direction: column;
-      height: 65px;
+      height: 70px;
       font-family: $sans-serif;
       color: $light-gray;
 
@@ -113,7 +116,7 @@
         width: 95%;
         display: block;
         margin-bottom: 10px;
-        font-size: 13px;
+        font-size: 14px;
       }
 
       button {
@@ -124,7 +127,8 @@
   }
 
   .list-create-form, .list-create-form-no-hover {
-    height: 15px;
+    height: 18px;
+    color: $gray;
   }
 
   .list-create-form:hover {

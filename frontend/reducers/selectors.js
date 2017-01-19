@@ -42,3 +42,11 @@ export const selectCard = (state, cardId) => {
   return state.cards[cardId] ||
     { name: '', description: '', list_id: '' };
 };
+
+export const selectSearchMembers = state => {
+  if (state.searchMembers) {
+    return Object.keys(state.searchMembers)
+      .map(id => state.searchMembers[id]);
+  }
+  return [];
+};

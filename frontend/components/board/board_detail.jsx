@@ -9,6 +9,7 @@ class BoardDetail extends Component {
   constructor() {
     super();
     this.showBoardMenu = this.showBoardMenu.bind(this);
+    this.showBoardHeader = this.showBoardHeader.bind(this);
   }
 
   componentDidMount() {
@@ -48,13 +49,29 @@ class BoardDetail extends Component {
     }
   }
 
+  showBoardHeader() {
+    const board = this.props.board;
+    const currentUserId = this.props.currentUserId;
+    if (board && board.owner) {
+      if (board.owner_id === currentUserId) {
+        return <BoardEditFormContainer boardId={board.id} />;
+      }
+      return (
+        <div className="board-detail-header-container">
+          <h1 className='board-shared-header'>{board.name}</h1>
+          <h3 className="board-shared-owner">{`by ${board.owner.username}`}</h3>
+        </div>
+      );
+    }
+  }
+
   render() {
     const boardId = this.props.params.boardId;
     return (
       <div className="board-detail-container">
         <div>
           {this.props.children}
-          <BoardEditFormContainer boardId={boardId} />
+          {this.showBoardHeader()}
           <ListIndexContainer boardId={boardId} />
         </div>
         {this.showBoardMenu()}

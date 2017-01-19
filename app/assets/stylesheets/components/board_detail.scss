@@ -16,10 +16,24 @@
       display: inline-block;
     }
 
+    .board-shared-header {
+      border: 1px solid transparent;
+      padding: 3px;
+      display: inline-block;
+    }
+
+    .board-shared-owner {
+      border: 1px solid transparent;
+      padding: 3px;
+      display: inline-block;
+      font-size: 16px;
+      color: $light-gray;
+      margin-left: 5px;
+    }
+
     .board-detail-header:hover {
       cursor: pointer;
       background-color: $lightest-gray;
-      border: 1px solid $gray;
       border-radius: 3px;
     }
 

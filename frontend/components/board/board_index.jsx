@@ -12,9 +12,9 @@ class BoardIndex extends Component {
   }
 
   sharedBoards() {
-    if (this.props.sharedBoards) {
+    if (this.props.sharedBoards && this.props.sharedBoards.length) {
       return (
-        <div>
+        <div className="shared-boards">
           <h1><i className="fa fa-users gray-icon"></i>&nbsp;
             Shared Boards</h1>
           <ul className="board-index">

@@ -1,13 +1,14 @@
 .board-menu {
-  width: 150px;
-  min-width: 150px;
+  width: 250px;
+  min-width: 250px;
   border: 1px solid $gray;
   border-radius: 3px;
   background-color: $lightest-gray;
   padding: 10px;
-  color: $gray;
+  color: $black;
   margin: 10px 15px;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
 
   .board-menu-header {
     border-bottom: 1px solid $gray;
@@ -15,10 +16,63 @@
 
   h1 {
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
   }
 
   button {
+    margin: 20px 0 10px 0;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  input {
+    font-size: 15px;
+    width: 95%;
+    border: 1px solid $light-gray;
+  }
+
+  .user-icon-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .user-icon {
+      width: 30px;
+      height: 20px;
+      border: 1px solid $light-gray;
+      border-radius: 3px;
+      background-color: $light-gray;
+      text-align: center;
+      padding-top: 8px;
+      margin: 0 10px 10px 0;
+      font-weight: bold;
+    }
+
+    .user-icon:hover {
+      cursor: default;
+    }
+  }
+
+  .search-member {
+    border: 1px solid $black;
+    border-radius: 3px;
     margin: 10px 0;
+    padding: 5px;
+    font-size: 13px;
+  }
+
+  .search-member:hover {
+    background-color: $light-gray;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .no-results {
+    margin: 10px 0;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  h2 {
+    margin: 20px 0;
   }
 }

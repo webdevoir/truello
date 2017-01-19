@@ -1,10 +1,14 @@
 .board-content {
-  margin: auto;
+  margin: 30px auto;
   max-width: 1300px;
 
   h1 {
     color: $gray;
-    margin: 15px 0 0 15px;
+    margin: 20px;
+  }
+
+  .shared-boards {
+    margin-top: 30px;
   }
 
   .board-index {
@@ -27,7 +31,7 @@
       font-size: 16px;
       font-weight: bold;
       border-radius: 3px;
-      margin: 15px;
+      margin: 20px;
       font-family: sans-serif;
       box-shadow: 3px 3px 3px $black;
     }

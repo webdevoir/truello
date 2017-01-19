@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118011037) do
+ActiveRecord::Schema.define(version: 20170118231654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170118011037) do
     t.integer  "member_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["board_id", "member_id"], name: "index_sharings_on_board_id_and_member_id", unique: true, using: :btree
     t.index ["board_id"], name: "index_sharings_on_board_id", using: :btree
     t.index ["member_id"], name: "index_sharings_on_member_id", using: :btree
   end

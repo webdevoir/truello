@@ -120,7 +120,7 @@ class CardDetail extends Component {
                 value={this.state.card.name}
                 onChange={this.update('name')} />
               <label htmlFor="form-card-desc">Description</label>
-              <textarea id="form-card-desc" className="form-card-desc"
+              <textarea rows="5" id="form-card-desc" className="form-card-desc"
                 onChange={this.update('description')}
                 value={this.state.card.description} />
               {this.createListOptions()}

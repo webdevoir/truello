@@ -37,6 +37,7 @@ textarea {
   font-size: 15px;
   color: $white;
   font-family: $sans-serif;
+  box-shadow: 0 3px $black;
 }
 
 .btn {
@@ -51,6 +52,7 @@ textarea {
 .blue-btn {
   border: 2px solid $dark-blue;
   background-color: $blue;
+  box-shadow: 0 3px $dark-blue;
 }
 
 .blue-btn:hover {
@@ -60,6 +62,7 @@ textarea {
 .green-btn {
   background-color: $green;
   border: 2px solid $dark-green;
+  box-shadow: 0 3px $dark-green;
 }
 
 .green-btn:hover {
@@ -69,6 +72,7 @@ textarea {
 .red-btn {
   background-color: $red;
   border: 2px solid $dark-red;
+  box-shadow: 0 3px $dark-red;
 }
 
 .red-btn:hover {

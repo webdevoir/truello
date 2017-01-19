@@ -6,7 +6,8 @@ import { selectBoard } from '../../reducers/selectors';
 import BoardDetail from './board_detail';
 
 const mapStateToProps = (state, ownProps) => ({
-  currentUserId: state.session.currentUser.id,
+  currentUserId: state.session.currentUser ?
+    state.session.currentUser.id : null,
   board: selectBoard(state, ownProps.params.boardId)
 });
 
