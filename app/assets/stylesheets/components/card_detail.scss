@@ -77,6 +77,10 @@
     cursor: pointer;
   }
 
+  .comments-section {
+    flex: 0 0 300px;
+  }
+
   .comment-index {
     margin-top: 25px;
   }
@@ -106,6 +110,7 @@
       padding-top: 8px;
       margin: 0 10px 10px 0;
       font-weight: bold;
+      flex-shrink: 0;
     }
 
     .user-icon:hover {
