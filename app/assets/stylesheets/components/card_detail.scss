@@ -6,19 +6,32 @@
 
   .close-modal-button {
     float: right;
-    border: none;
-    font-weight: normal;
+    font-size: 18px;
+  }
+
+  .close-modal-button:hover {
+    cursor: pointer;
   }
 
   .modal-header {
     border-bottom: 1px solid $light-gray;
     color: $light-gray;
     padding-bottom: 5px;
+    margin-bottom: 20px;
   }
 
-  .form-card-name, .form-card-desc {
+  .card-details-content {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .form-card-name, .form-card-desc, .form-card-comment {
     margin-bottom: 15px;
     width: 97%;
+  }
+
+  .form-date {
+    margin-bottom: 15px;
   }
 
   select {
@@ -27,6 +40,7 @@
 
   h3 {
     text-align: center;
+    font-size: 16px;
   }
 
   button {
@@ -39,7 +53,63 @@
     margin: 10px 0;
   }
 
-  input, textarea {
+  input, textarea, select {
     font-size: 13px;
   }
+
+  .btn-group {
+    margin-top: 20px;
+  }
+
+  h4 {
+      margin: 10px 0;
+  }
+
+  a {
+    font-weight: normal;
+    color: $light-gray;
+    text-decoration: underline;
+    font-size: 12px;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+
+  .comment-index {
+    margin-top: 25px;
+  }
+
+  .comment-item {
+
+    display: flex;
+    margin: 10px 0;
+
+    p {
+      font-weight: normal;
+      font-size: 13px;
+    }
+
+    .comment-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-icon {
+      width: 30px;
+      height: 20px;
+      border: 1px solid $light-gray;
+      border-radius: 3px;
+      background-color: $light-gray;
+      text-align: center;
+      padding-top: 8px;
+      margin: 0 10px 10px 0;
+      font-weight: bold;
+    }
+
+    .user-icon:hover {
+      cursor: default;
+    }
+  }
+
 }

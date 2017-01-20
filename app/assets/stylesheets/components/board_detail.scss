@@ -48,7 +48,7 @@
       padding: 10px;
       font-size: 15px;
       flex-direction: column;
-      height: 125px;
+      height: 140px;
       width: 250px;
       font-family: $sans-serif;
       font-weight: bold;
@@ -66,6 +66,8 @@
       .close-button {
         float: right;
         font-weight: normal;
+        cursor: pointer;
+        font-size: 18px;
       }
 
       label {

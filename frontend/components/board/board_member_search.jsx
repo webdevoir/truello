@@ -32,6 +32,8 @@ class BoardMemberSearch extends Component {
     this.setState({ query: e.target.value, start: true });
   }
 
+
+
   addMember(member, event) {
     if (event) {
       event.target.classList.add("hide");

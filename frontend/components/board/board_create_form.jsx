@@ -83,8 +83,8 @@ class BoardCreateForm extends Component {
         <span>Create a new board...</span>
         <div className={`create-pop-up-container ${className}`} ref='popUp'>
           <div className='create-pop-up-header'>
-            <button type="button" className="close-button"
-              onClick={this.close}>X</button>
+            <i className="fa fa-times close-button"
+              onClick={this.close}></i>
             <h3>Create Board</h3>
           </div>
           <form onSubmit={this.handleSubmit}>

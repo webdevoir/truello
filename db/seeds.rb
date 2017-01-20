@@ -10,7 +10,8 @@ george = User.create!(username: 'George', password: 'password')
 
 board1 = Board.create!(name: 'Production Workflow', owner: demo)
 list11 = List.create!(name: 'In Progress', board: board1)
-Card.create!(name: "Challenge interfaces", list: list11, list_order: 0)
+Card.create!(name: "Challenge interfaces", list: list11,
+  due_date: Time.now, list_order: 0)
 
 list12 = List.create!(name: 'Next Up', board: board1)
 Card.create!(name: "Homepage animation", list: list12, list_order: 0)
@@ -96,3 +97,5 @@ Card.create!(name: "30-minute Run", list: list54, list_order: 2)
 
 Sharing.create!(board: board1, member: george)
 Sharing.create!(board: board5, member: demo)
+
+Comment.create!(card_id: 1, author: george, text: "nice card!")

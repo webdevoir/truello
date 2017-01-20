@@ -50,3 +50,8 @@ export const selectSearchMembers = state => {
   }
   return [];
 };
+
+export const selectComments = state => {
+  return Object.keys(state.comments)
+    .map(id => state.comments[id]).reverse();
+};

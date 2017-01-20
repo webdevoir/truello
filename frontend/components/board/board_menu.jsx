@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import BoardMemberIndex from './board_member_index';
 import BoardMemberSearchContainer from './board_member_search_container';
+import debounce from 'lodash/debounce';
 
 class BoardMenu extends Component {
   constructor(props) {

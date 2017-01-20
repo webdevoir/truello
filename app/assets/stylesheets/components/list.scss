@@ -48,7 +48,7 @@
       font-size: 15px;
       flex-direction: column;
       width: 250px;
-      height: 130px;
+      height: 140px;
       font-family: $sans-serif;
 
       h3 {
@@ -65,6 +65,8 @@
 
       .close-button {
         float: right;
+        margin-right: 2px;
+        font-size: 18px;
       }
 
       label {
@@ -97,7 +99,7 @@
       padding: 10px 5px;
       font-size: 15px;
       flex-direction: column;
-      height: 70px;
+      height: 75px;
       font-family: $sans-serif;
       color: $light-gray;
 
@@ -122,6 +124,11 @@
       button {
         margin-right: 10px;
         display: inline;
+      }
+
+      .close-button {
+        font-size: 20px;
+        cursor: pointer;
       }
     }
   }

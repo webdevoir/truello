@@ -6,6 +6,8 @@ class Card < ApplicationRecord
 
   belongs_to :list
 
+  has_many :comments
+
   def self.max_list_order(list_id)
     Card.where(list_id: list_id).maximum(:list_order) || 0
   end

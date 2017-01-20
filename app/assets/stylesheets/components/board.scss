@@ -1,5 +1,5 @@
 .board-content {
-  margin: 30px auto;
+  margin: 50px auto;
   max-width: 1300px;
 
   h1 {
@@ -8,7 +8,7 @@
   }
 
   .shared-boards {
-    margin-top: 30px;
+    margin-top: 50px;
   }
 
   .board-index {
@@ -64,7 +64,7 @@
         top: -1%;
         left: -1%;
         right: -2%;
-        bottom: -50%;
+        bottom: -60%;
         background-color: $white;
         border: 1px solid $black;
         border-radius: 3px;
@@ -84,6 +84,8 @@
 
         .close-button {
           float: right;
+          cursor: pointer;
+          font-size: 18px;
         }
 
         label {

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import Modal from 'react-modal';
 import merge from 'lodash/merge';
+import CardCommentFormContainer from './card_comment_form_container';
+import CardCommentIndexContainer from './card_comment_index_container';
 
 const customStyles = {
   content : {
@@ -12,8 +14,10 @@ const customStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     padding               : '5px',
-    width                 : '400px',
+    width                 : '750px',
+    maxHeight             : '500px',
     border                : '1px solid #868c85',
+    boxShadow             : '0 2px #868c85'
   }
 };
 
@@ -32,6 +36,7 @@ class CardDetail extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteCard = this.deleteCard.bind(this);
     this.createListOptions = this.createListOptions.bind(this);
+    this.showDueDate = this.showDueDate.bind(this);
   }
 
   componentDidMount() {
@@ -88,11 +93,23 @@ class CardDetail extends Component {
     ));
     return (
       <div>
-        <label htmlFor="form-card-lists">Move to List</label>
+        <label className="list-label"
+          htmlFor="form-card-lists">Move to List</label>
         <select id="form-card-lists" value={this.state.card.list_id}
           onChange={this.update('list_id')}>
           {listOptions}
         </select>
+      </div>
+    );
+  }
+
+  showDueDate() {
+    return (
+      <div>
+        <label htmlFor="form-date">Due Date</label>
+        <input id="form-date" className="form-date"
+          type="date" value={this.state.card.due_date || ""}
+          onChange={this.update('due_date')} />
       </div>
     );
   }
@@ -109,27 +126,39 @@ class CardDetail extends Component {
         >
           <div className='modal-content'>
             <div className='modal-header'>
-              <button className="close-modal-button"
-                onClick={this.closeModal}>X</button>
+              <i className="fa fa-times close-modal-button"
+                onClick={this.closeModal}></i>
               <h3>Card Details</h3>
             </div>
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="form-card-name">Name</label>
-              <input id="form-card-name" type='text'
-                className="form-card-name" ref="name"
-                value={this.state.card.name}
-                onChange={this.update('name')} />
-              <label htmlFor="form-card-desc">Description</label>
-              <textarea rows="5" id="form-card-desc" className="form-card-desc"
-                onChange={this.update('description')}
-                value={this.state.card.description}
-                placeholder="Add description..." />
-              {this.createListOptions()}
-              <button
-                className='small-btn green-btn'>Edit Card</button>
-              <button type="button" className='small-btn red-btn'
-                onClick={this.deleteCard}>Delete</button>
-            </form>
+            <div className="card-details-content">
+              <div>
+                <form onSubmit={this.handleSubmit}>
+                  <label htmlFor="form-card-name">Name</label>
+                  <input id="form-card-name" type='text'
+                    className="form-card-name" ref="name"
+                    value={this.state.card.name}
+                    onChange={this.update('name')} />
+                  <label htmlFor="form-card-desc">Description</label>
+                  <textarea rows="5" id="form-card-desc"
+                    className="form-card-desc"
+                    onChange={this.update('description')}
+                    value={this.state.card.description}
+                    placeholder="Add description..." />
+                  {this.showDueDate()}
+                  {this.createListOptions()}
+                  <div className="btn-group">
+                    <button
+                      className='small-btn green-btn'>Edit Card</button>
+                    <button type="button" className='small-btn red-btn'
+                      onClick={this.deleteCard}>Delete Card</button>
+                  </div>
+                </form>
+              </div>
+              <div className="comments-section">
+                <CardCommentFormContainer cardId={this.props.params.cardId} />
+                <CardCommentIndexContainer cardId={this.props.params.cardId} />
+              </div>
+            </div>
           </div>
         </Modal>
       </div>

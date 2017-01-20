@@ -6,6 +6,7 @@ import listReducer from './list_reducer';
 import cardReducer from './card_reducer';
 import memberReducer from './member_reducer';
 import searchMemberReducer from './search_member_reducer';
+import commentReducer from './comment_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   lists: listReducer,
   cards: cardReducer,
   members: memberReducer,
-  searchMembers: searchMemberReducer
+  searchMembers: searchMemberReducer,
+  comments: commentReducer
 });
 
 export default rootReducer;

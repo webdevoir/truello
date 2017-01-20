@@ -96,8 +96,8 @@ class CardCreateForm extends Component {
                   onChange={this.update('name')} ref="name" />
                 <button
                   className='small-btn green-btn'>Save</button>
-                <button type="button"
-                  onClick={this.close}>X</button>
+                  <i className="fa fa-times close-button"
+                    onClick={this.close}></i>
               </form>
             </div>
           </div>

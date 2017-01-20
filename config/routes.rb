@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       resource :member, only: :create
     end
     resources :lists, only: [:create, :update, :destroy]
-    resources :cards, except: [:index, :new, :edit]
+    resources :cards, except: [:index, :new, :edit] do
+      resources :comments, only: :index
+    end
+    resources :comments, only: [:create, :destroy]
   end
 end

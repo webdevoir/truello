@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ChecklistTest < ActiveSupport::TestCase
+class Api::CommentsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

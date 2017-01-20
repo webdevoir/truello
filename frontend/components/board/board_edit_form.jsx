@@ -82,8 +82,8 @@ class BoardEditForm extends Component {
         <h1 className='board-detail-header'>{this.props.board.name}</h1>
         <div className={`update-pop-up-container ${className}`} ref='popUp'>
           <div className='update-pop-up-header'>
-            <button className="close-button"
-              onClick={this.close}>X</button>
+            <i className="fa fa-times close-button"
+              onClick={this.close}></i>
             <h3>Rename Board</h3>
           </div>
           <form onSubmit={this.handleSubmit}>

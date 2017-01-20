@@ -24,3 +24,11 @@ export const addMember = (boardId, member) => (
     data: { member }
   })
 );
+
+export const deleteMember = (boardId, member) => (
+  $.ajax({
+    type: 'POST',
+    url: `api/boards/${boardId}/member`,
+    data: { member }
+  })
+);

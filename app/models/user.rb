@@ -25,6 +25,11 @@ class User < ApplicationRecord
            through: :sharings,
            source: :board
 
+  has_many :comments,
+           primary_key: :id,
+           foreign_key: :author_id,
+           class_name: :Comment
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if user && user.is_password?(password)

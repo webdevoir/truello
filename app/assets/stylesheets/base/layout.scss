@@ -69,6 +69,18 @@ textarea {
   background-color: $dark-green;
 }
 
+.gray-btn {
+  background-color: $lightest-gray;
+  border: 2px solid $light-gray;
+  box-shadow: 0 3px $light-gray;
+  color: $gray;
+}
+
+.gray-btn:hover {
+  background-color: $light-gray;
+  color: $black;
+}
+
 .red-btn {
   background-color: $red;
   border: 2px solid $dark-red;

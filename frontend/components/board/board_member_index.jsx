@@ -7,7 +7,10 @@ const BoardMemberIndex = ({ members }) => (
       {members.map(member => (
         <li key={member.id}>
           <div className="user-icon" title={member.username}>
-            {member.username.slice(0, 1).toUpperCase()}
+            <div>{member.username.slice(0, 1).toUpperCase()}</div>
+              <i title={`Remove ${member.username}`}
+                className="fa fa-times"
+                ></i>
           </div>
         </li>
       ))}

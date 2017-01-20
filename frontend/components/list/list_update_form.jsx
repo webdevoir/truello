@@ -88,8 +88,8 @@ class ListUpdateForm extends Component {
         </div>
         <div className={`update-pop-up-container ${className}`} ref='popUp'>
             <div className='update-pop-up-header'>
-              <button className="close-button"
-                onClick={this.hide}>X</button>
+              <i className="fa fa-times close-button"
+                onClick={this.hide}></i>
               <h3>Update List</h3>
             </div>
             <form onSubmit={this.handleSubmit}>
