@@ -16,7 +16,8 @@ class CardCommentForm extends Component {
     return e => this.setState({ [prop]: e.target.value });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     if (this.state.text) {
       this.props.createComment(this.state)
         .then(() => this.setState(this.props.comment));

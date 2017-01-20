@@ -153,7 +153,8 @@ Sharing.create!(board: board5, member: demo)
 users = [demo, george, vicki]
 
 comments = ["Awesome Idea!", "Why didn't I think of that!", "So cool!",
-  "That's neat!", "Great idea", "Can I steal this?"]
+  "That's neat!", "Great idea", "Can I steal this?", "What a great idea",
+  "That's cool!", "What?!"]
 
 card_ids = Card.all.ids
 
