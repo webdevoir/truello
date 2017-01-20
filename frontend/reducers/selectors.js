@@ -51,6 +51,12 @@ export const selectSearchMembers = state => {
   return [];
 };
 
+export const selectMembers = state => {
+  const members = [state.session.currentUser];
+  return members.concat(Object.keys(state.members)
+    .map(id => state.members[id]));
+};
+
 export const selectComments = state => {
   return Object.keys(state.comments)
     .map(id => state.comments[id]).reverse();

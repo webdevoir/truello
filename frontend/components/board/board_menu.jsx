@@ -29,7 +29,10 @@ class BoardMenu extends Component {
           <i className="fa fa-trash"></i>
           &nbsp;
           Delete Board</button>
-        <BoardMemberIndex members={this.props.members} />
+        <BoardMemberIndex members={this.props.members}
+          deleteMember={this.props.deleteMember}
+          boardId={this.props.boardId}
+          currentUserId={this.props.currentUserId} />
         <BoardMemberSearchContainer />
       </div>
     );

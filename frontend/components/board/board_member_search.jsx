@@ -38,7 +38,8 @@ class BoardMemberSearch extends Component {
     if (event) {
       event.target.classList.add("hide");
     }
-    this.props.addMember(this.props.params.boardId, member);
+    this.props.addMember(this.props.params.boardId, member)
+      .then(this.setState({ query: '' }));
   }
 
   showSearchMembers() {

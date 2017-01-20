@@ -25,7 +25,8 @@ class CardCommentIndex extends Component {
   comments() {
     return this.props.comments.map(comment => {
       var obj;
-      if (this.props.currentUserId === comment.author_id) {
+      if (this.props.currentUserId === comment.author_id
+        || this.props.currentUserId === this.props.board.owner_id) {
         obj = <a onClick={() => this.props.deleteComment(comment.id)}>
           Delete</a>;
       }

@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   def index
     board = Board.find(params[:board_id])
-    @users = [board.owner] + board.members
+    @users = board.members
     render :index
   end
 

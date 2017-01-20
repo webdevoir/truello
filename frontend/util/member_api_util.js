@@ -20,15 +20,14 @@ export const fetchSearchMembers = (boardId, query) => (
 export const addMember = (boardId, member) => (
   $.ajax({
     type: 'POST',
-    url: `api/boards/${boardId}/member`,
+    url: `api/boards/${boardId}/members`,
     data: { member }
   })
 );
 
-export const deleteMember = (boardId, member) => (
+export const deleteMember = (boardId, memberId) => (
   $.ajax({
-    type: 'POST',
-    url: `api/boards/${boardId}/member`,
-    data: { member }
+    type: 'DELETE',
+    url: `api/boards/${boardId}/members/${memberId}`
   })
 );

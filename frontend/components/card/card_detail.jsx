@@ -156,7 +156,8 @@ class CardDetail extends Component {
               </div>
               <div className="comments-section">
                 <CardCommentFormContainer cardId={this.props.params.cardId} />
-                <CardCommentIndexContainer cardId={this.props.params.cardId} />
+                <CardCommentIndexContainer cardId={this.props.params.cardId}
+                  board={this.props.board} />
               </div>
             </div>
           </div>

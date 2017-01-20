@@ -18,6 +18,10 @@ class Board < ApplicationRecord
            through: :sharings,
            source: :member
 
+  has_many :cards,
+           through: :lists,
+           source: :cards
+
   def has_member(member)
     members.include?(member)
   end

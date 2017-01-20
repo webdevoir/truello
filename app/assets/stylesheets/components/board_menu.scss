@@ -11,6 +11,8 @@
   display: flex;
   flex-direction: column;
   min-height: 500px;
+  max-height: calc(85vh - 81px);
+  overflow: auto;
   align-self: flex-start;
 
   .board-menu-header {
@@ -26,32 +28,45 @@
     margin: 20px 0 10px 0;
     font-size: 12px;
     text-align: center;
+    min-height: 10px;
   }
 
   input {
     font-size: 15px;
     width: 95%;
     border: 1px solid $light-gray;
+    margin-bottom: 15px;
   }
 
   .user-icon-list {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 15px;
 
     .user-icon {
-      width: 50px;
+      width: 45px;
       height: 30px;
       border: 1px solid $light-gray;
       border-radius: 3px;
       background-color: $light-gray;
       text-align: center;
-      padding-top: 8px;
       margin: 0 10px 10px 0;
       font-weight: bold;
+      display: flex;
+      justify-content: space-between;
     }
 
     .user-icon:hover {
       cursor: default;
+    }
+
+    .user-initial {
+      align-self: center;
+      padding-left: 17px;
+    }
+
+    .delete {
+      cursor: pointer;
     }
   }
 
