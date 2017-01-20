@@ -1,14 +1,14 @@
 {
   "name": "truello",
   "version": "1.0.0",
-  "description": "",
+  "description": "[Truello][http://www.truello.io]",
   "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "test"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",

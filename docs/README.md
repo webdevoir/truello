@@ -14,12 +14,12 @@ using Ruby on Rails and React/Redux.
 
 ### Features
 - [x] New account creation, login, and guest/demo login
-- [ ] [Production README](../README.md)
-- [ ] Hosting on Heroku
-- [ ] Boards
-- [ ] Lists & Cards
-- [ ] Sharing Boards
-- [ ] Comments & Due Dates
+- [x] [Production README](../README.md)
+- [x] Hosting on Heroku
+- [x] Boards
+- [x] Lists & Cards
+- [x] Sharing Boards
+- [x] Comments & Due Dates
 
 ### Bonus Features
 - [ ] Board Settings
