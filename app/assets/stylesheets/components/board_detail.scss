@@ -1,7 +1,8 @@
 .board-detail-container {
   display: flex;
   justify-content: space-between;
-  margin: 15px;
+  margin: 15px 15px 0 15px;
+  height: calc(97vh - 81px);
   overflow: auto;
 
   .board-detail-header-container {
