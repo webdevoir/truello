@@ -27,7 +27,7 @@ Card.create!(name: "Learn to code", list: list12, list_order: 1,
   due_date: Time.now + 6.months)
 
 list13 = List.create!(name: 'Ideas', board: board1)
-Card.create!(name: "New Years resolutions", list: list13, list_order: 0,
+Card.create!(name: "New Year's resolutions", list: list13, list_order: 0,
   description: "Stop eating junk food. Get to work early everyday.",
   due_date: Time.now + 7.days)
 Card.create!(name: "Passing thoughts", list: list13, list_order: 1,
